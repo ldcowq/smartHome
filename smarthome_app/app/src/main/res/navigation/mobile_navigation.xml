@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.hr.smarthome.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_temphumi"
+        android:name="com.hr.smarthome.ui.temphumi.TemphumiFragment"
+        android:label="@string/menu_temphumi"
+        tools:layout="@layout/fragment_temphumi" />
+
+    <fragment
+        android:id="@+id/nav_light"
+        android:name="com.hr.smarthome.ui.light.LightFragment"
+        android:label="@string/menu_light"
+        tools:layout="@layout/fragment_light" />
+
+    <fragment
+        android:id="@+id/nav_mq2"
+        android:name="com.hr.smarthome.ui.mq2.Mq2Fragment"
+        android:label="@string/menu_mq2"
+        tools:layout="@layout/fragment_mq2" />
+
+    <fragment
+        android:id="@+id/nav_control"
+        android:name="com.hr.smarthome.ui.control.ControlFragment"
+        android:label="@string/menu_control"
+        tools:layout="@layout/fragment_control" />
+
+    <fragment
+        android:id="@+id/nav_mqtt"
+        android:name="com.hr.smarthome.ui.mqtt.MqttFragment"
+        android:label="@string/menu_mqtt"
+        tools:layout="@layout/fragment_mqtt" />
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.hr.smarthome.ui.contact.ContactFragment"
+        android:label="@string/menu_contact"
+        tools:layout="@layout/fragment_contact" />
+</navigation>

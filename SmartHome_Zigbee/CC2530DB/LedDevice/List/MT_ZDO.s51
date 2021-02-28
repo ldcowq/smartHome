@@ -1,0 +1,2318 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        28/Dec/2020  22:12:34 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Components\mt\MT_ZDO.c                          /
+//    Command line       =  -f D:\developer_tool_install\IAR\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\..\..\Tools\CC2530DB\f8wEndev.cfg (-DCPU32MHZ   /
+//                          -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3        /
+//                          -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f         /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO    /
+//                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR      /
+//                          -DDEFAULT_CHANLIST=0x00010000                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFAA                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 D:\developer_tool_install\ /
+//                          IAR\ZStack-CC2530-2.5.1a\Components\mt\MT_ZDO.c   /
+//                          -D xNWK_AUTO_POLL -D ZTOOL_P1 -D                  /
+//                          xRFD_RCVC_ALWAYS_ON=TRUE -D xMT_TASK -D           /
+//                          xMT_SYS_FUNC -D xMT_ZDO_FUNC -D                   /
+//                          xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC         /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\LedD /
+//                          evice\List\ -lA D:\developer_tool_install\IAR\ZSt /
+//                          ack-CC2530-2.5.1a\Projects\zstack\Samples\SmartHo /
+//                          me\CC2530DB\LedDevice\List\ --diag_suppress       /
+//                          Pe001,Pa010 -o D:\developer_tool_install\IAR\ZSta /
+//                          ck-CC2530-2.5.1a\Projects\zstack\Samples\SmartHom /
+//                          e\CC2530DB\LedDevice\Obj\ -e --no_code_motion     /
+//                          --debug --core=plain --dptr=16,1                  /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 16   /
+//                          -I D:\developer_tool_install\IAR\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Samples\SmartHome\CC2530DB\  /
+//                          -I D:\developer_tool_install\IAR\ZStack-CC2530-2. /
+//                          5.1a\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\Source\ -I D:\developer_tool_install\IAR\ZStack /
+//                          -CC2530-2.5.1a\Projects\zstack\Samples\SmartHome\ /
+//                          CC2530DB\..\..\..\ZMain\TI2530DB\ -I              /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\hal\include\ -I             /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\hal\target\CC2530EB\ -I     /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\mac\include\ -I             /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\mac\high_level\ -I          /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\mac\low_level\srf04\ -I     /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\mac\low_level\srf04\single_ /
+//                          chip\ -I D:\developer_tool_install\IAR\ZStack-CC2 /
+//                          530-2.5.1a\Projects\zstack\Samples\SmartHome\CC25 /
+//                          30DB\..\..\..\..\..\Components\mt\ -I             /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\osal\include\ -I            /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\services\saddr\ -I          /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\services\sdata\ -I          /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\af\ -I                /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\nwk\ -I               /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\sapi\ -I              /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\sec\ -I               /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\sys\ -I               /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\stack\zdo\ -I               /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\zmac\ -I                    /
+//                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\Components\zmac\f8w\ -Ohz              /
+//                          --require_prototypes                              /
+//    List file          =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1 /
+//                          a\Projects\zstack\Samples\SmartHome\CC2530DB\LedD /
+//                          evice\List\MT_ZDO.s51                             /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_ZDO
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+
+        END
+// D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a\Components\mt\MT_ZDO.c
+//    1 /**************************************************************************************************
+//    2   Filename:       MT_ZDO.c
+//    3   Revised:        $Date: 2012-02-16 16:04:32 -0800 (Thu, 16 Feb 2012) $
+//    4   Revision:       $Revision: 29348 $
+//    5 
+//    6   Description:    MonitorTest functions for the ZDO layer.
+//    7 
+//    8 
+//    9   Copyright 2004-2012 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License"). You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product. Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 #ifdef MT_ZDO_FUNC
+//   41 
+//   42 /**************************************************************************************************
+//   43  * INCLUDES
+//   44  **************************************************************************************************/
+//   45 #include "ZComDef.h"
+//   46 #include "OSAL.h"
+//   47 #include "OSAL_Nv.h"
+//   48 #include "MT.h"
+//   49 #include "MT_ZDO.h"
+//   50 #include "APSMEDE.h"
+//   51 #include "ZDConfig.h"
+//   52 #include "ZDProfile.h"
+//   53 #include "ZDObject.h"
+//   54 #include "ZDApp.h"
+//   55 
+//   56 #if !defined( WIN32 )
+//   57   #include "OnBoard.h"
+//   58 #endif
+//   59 
+//   60 #if defined ( MT_SYS_KEY_MANAGEMENT )
+//   61   #include "ZDSecMgr.h"
+//   62 #endif
+//   63 
+//   64 #include "nwk_util.h"
+//   65 
+//   66 /**************************************************************************************************
+//   67  * CONSTANTS
+//   68  **************************************************************************************************/
+//   69 #define MT_ZDO_END_DEVICE_ANNCE_IND_LEN   0x0D
+//   70 #define MT_ZDO_ADDR_RSP_LEN               0x0D
+//   71 #define MT_ZDO_BIND_UNBIND_RSP_LEN        0x03
+//   72 #define MT_ZDO_BEACON_IND_LEN             21
+//   73 #define MT_ZDO_BEACON_IND_PACK_LEN        (MT_UART_TX_BUFF_MAX - SPI_0DATA_MSG_LEN)
+//   74 #define MT_ZDO_JOIN_CNF_LEN               5
+//   75 
+//   76 // Message must pack nwk addr, entire (not just pointer to) ieee addr, and packet cost, so the
+//   77 // sizeof(zdoConcentratorInd_t) is not usable.
+//   78 #define MT_ZDO_CONCENTRATOR_IND_LEN      (2 + Z_EXTADDR_LEN + 1)
+//   79 
+//   80 #define MTZDO_RESPONSE_BUFFER_LEN   100
+//   81 
+//   82 #define MTZDO_MAX_MATCH_CLUSTERS    16
+//   83 #define MTZDO_MAX_ED_BIND_CLUSTERS  15
+//   84 
+//   85 // Conversion from ZDO Cluster Id to the RPC AREQ Id is direct as follows:
+//   86 #define MT_ZDO_CID_TO_AREQ_ID(CId)  ((uint8)(CId) | 0x80)
+//   87 
+//   88 #define MT_ZDO_STATUS_LEN   1
+//   89 
+//   90 /**************************************************************************************************
+//   91  * GLOBAL VARIABLES
+//   92  **************************************************************************************************/
+//   93 uint32 _zdoCallbackSub;
+//   94 uint8 *pBeaconIndBuf = NULL;
+//   95 
+//   96 /**************************************************************************************************
+//   97  * LOCAL VARIABLES
+//   98  **************************************************************************************************/
+//   99 
+//  100 /**************************************************************************************************
+//  101  * LOCAL FUNCTIONS
+//  102  **************************************************************************************************/
+//  103 #if defined (MT_ZDO_FUNC)
+//  104 void MT_ZdoNWKAddressRequest(uint8 *pBuf);
+//  105 void MT_ZdoIEEEAddrRequest(uint8 *pBuf);
+//  106 void MT_ZdoNodeDescRequest(uint8 *pBuf);
+//  107 void MT_ZdoPowerDescRequest(uint8 *pBuf);
+//  108 void MT_ZdoSimpleDescRequest(uint8 *pBuf);
+//  109 void MT_ZdoActiveEpRequest(uint8 *pBuf);
+//  110 void MT_ZdoMatchDescRequest(uint8 *pBuf);
+//  111 void MT_ZdoComplexDescRequest(uint8 *pBuf);
+//  112 void MT_ZdoUserDescRequest(uint8 *pBuf);
+//  113 void MT_ZdoEndDevAnnce(uint8 *pBuf);
+//  114 void MT_ZdoUserDescSet(uint8 *pBuf);
+//  115 void MT_ZdoServiceDiscRequest(uint8 *pBuf);
+//  116 void MT_ZdoEndDevBindRequest(uint8 *pBuf);
+//  117 void MT_ZdoBindRequest(uint8 *pBuf);
+//  118 void MT_ZdoUnbindRequest(uint8 *pBuf);
+//  119 void MT_ZdoMgmtNwkDiscRequest(uint8 *pBuf);
+//  120 #if defined ( MT_SYS_KEY_MANAGEMENT )
+//  121 void MT_ZdoSetLinkKey(uint8 *pBuf);
+//  122 void MT_ZdoRemoveLinkKey(uint8 *pBuf);
+//  123 void MT_ZdoGetLinkKey(uint8 *pBuf);
+//  124 #endif /* MT_SYS_KEY_MANAGEMENT */
+//  125 void MT_ZdoNetworkDiscoveryReq(uint8 *pBuf);
+//  126 void MT_ZdoJoinReq(uint8 *pBuf);
+//  127 /* Call back function */
+//  128 void *MT_ZdoNwkDiscoveryCnfCB ( void *pStr );
+//  129 void *MT_ZdoBeaconIndCB ( void *pStr );
+//  130 void *MT_ZdoJoinCnfCB ( void *pStr );
+//  131 #if defined (MT_ZDO_MGMT)
+//  132 void MT_ZdoMgmtLqiRequest(uint8 *pBuf);
+//  133 void MT_ZdoMgmtRtgRequest(uint8 *pBuf);
+//  134 void MT_ZdoMgmtBindRequest(uint8 *pBuf);
+//  135 void MT_ZdoMgmtLeaveRequest(uint8 *pBuf);
+//  136 void MT_ZdoMgmtDirectJoinRequest(uint8 *pBuf);
+//  137 void MT_ZdoMgmtPermitJoinRequest(uint8 *pBuf);
+//  138 void MT_ZdoMgmtNwkUpdateRequest(uint8 *pBuf);
+//  139 #endif /* MT_ZDO_MGMT */
+//  140 void MT_ZdoStartupFromApp(uint8 *pBuf);
+//  141 void MT_ZdoRegisterForZDOMsg(uint8 *pBuf);
+//  142 void MT_ZdoRemoveRegisteredCB(uint8 *pBuf);
+//  143 #endif /* MT_ZDO_FUNC */
+//  144 
+//  145 #if defined (MT_ZDO_CB_FUNC)
+//  146 uint8 MT_ZdoHandleExceptions( afIncomingMSGPacket_t *pData, zdoIncomingMsg_t *inMsg );
+//  147 void MT_ZdoAddrRspCB( ZDO_NwkIEEEAddrResp_t *pMsg, uint16 clusterID );
+//  148 void MT_ZdoEndDevAnnceCB( ZDO_DeviceAnnce_t *pMsg, uint16 srcAddr );
+//  149 void MT_ZdoBindUnbindRspCB( uint16 clusterID, uint16 srcAddr, uint8 status );
+//  150 void* MT_ZdoSrcRtgCB( void *pStr );
+//  151 static void *MT_ZdoConcentratorIndCB(void *pStr);
+//  152 static void *MT_ZdoLeaveInd(void *vPtr);
+//  153 #endif /* MT_ZDO_CB_FUNC */
+//  154 
+//  155 #if defined (MT_ZDO_FUNC)
+//  156 /***************************************************************************************************
+//  157  * @fn      MT_ZdoInit
+//  158  *
+//  159  * @brief   MT ZDO initialization
+//  160  *
+//  161  * @param   none
+//  162  *
+//  163  * @return  none
+//  164  ***************************************************************************************************/
+//  165 void MT_ZdoInit(void)
+//  166 {
+//  167 #ifdef MT_ZDO_CB_FUNC
+//  168   /* Register with ZDO for indication callbacks */
+//  169   ZDO_RegisterForZdoCB(ZDO_SRC_RTG_IND_CBID, &MT_ZdoSrcRtgCB);
+//  170   ZDO_RegisterForZdoCB(ZDO_CONCENTRATOR_IND_CBID, &MT_ZdoConcentratorIndCB);
+//  171   ZDO_RegisterForZdoCB(ZDO_LEAVE_IND_CBID, &MT_ZdoLeaveInd);
+//  172 #endif
+//  173 }
+//  174 
+//  175 /***************************************************************************************************
+//  176  * @fn      MT_ZdoCommandProcessing
+//  177  *
+//  178  * @brief
+//  179  *
+//  180  *   Process all the ZDO commands that are issued by test tool
+//  181  *
+//  182  * @param   pBuf - pointer to the msg buffer
+//  183  *
+//  184  *          | LEN  | CMD0  | CMD1  |  DATA  |
+//  185  *          |  1   |   1   |   1   |  0-255 |
+//  186  *
+//  187  * @return  status
+//  188  ***************************************************************************************************/
+//  189 uint8 MT_ZdoCommandProcessing(uint8* pBuf)
+//  190 {
+//  191   uint8 status = MT_RPC_SUCCESS;
+//  192 
+//  193   switch (pBuf[MT_RPC_POS_CMD1])
+//  194   {
+//  195 #if defined ( ZDO_NWKADDR_REQUEST )
+//  196     case MT_ZDO_NWK_ADDR_REQ:
+//  197       MT_ZdoNWKAddressRequest(pBuf);
+//  198       break;
+//  199 #endif
+//  200 
+//  201 #if defined ( ZDO_IEEEADDR_REQUEST )
+//  202     case MT_ZDO_IEEE_ADDR_REQ:
+//  203       MT_ZdoIEEEAddrRequest(pBuf);
+//  204       break;
+//  205 #endif
+//  206 
+//  207 #if defined ( ZDO_NODEDESC_REQUEST )
+//  208     case MT_ZDO_NODE_DESC_REQ:
+//  209       MT_ZdoNodeDescRequest(pBuf);
+//  210       break;
+//  211 #endif
+//  212 
+//  213 #if defined ( ZDO_POWERDESC_REQUEST )
+//  214     case MT_ZDO_POWER_DESC_REQ:
+//  215       MT_ZdoPowerDescRequest(pBuf);
+//  216       break;
+//  217 #endif
+//  218 
+//  219 #if defined ( ZDO_SIMPLEDESC_REQUEST )
+//  220     case MT_ZDO_SIMPLE_DESC_REQ:
+//  221       MT_ZdoSimpleDescRequest(pBuf);
+//  222       break;
+//  223 #endif
+//  224 
+//  225 #if defined ( ZDO_ACTIVEEP_REQUEST )
+//  226     case MT_ZDO_ACTIVE_EP_REQ:
+//  227       MT_ZdoActiveEpRequest(pBuf);
+//  228       break;
+//  229 #endif
+//  230 
+//  231 #if defined ( ZDO_MATCH_REQUEST )
+//  232     case MT_ZDO_MATCH_DESC_REQ:
+//  233       MT_ZdoMatchDescRequest(pBuf);
+//  234       break;
+//  235 #endif
+//  236 
+//  237 #if defined ( ZDO_COMPLEXDESC_REQUEST )
+//  238     case MT_ZDO_COMPLEX_DESC_REQ:
+//  239       MT_ZdoComplexDescRequest(pBuf);
+//  240       break;
+//  241 #endif
+//  242 
+//  243 #if defined ( ZDO_USERDESC_REQUEST )
+//  244     case MT_ZDO_USER_DESC_REQ:
+//  245       MT_ZdoUserDescRequest(pBuf);
+//  246       break;
+//  247 #endif
+//  248 
+//  249 #if defined ( ZDO_ENDDEVICE_ANNCE )
+//  250     case MT_ZDO_END_DEV_ANNCE:
+//  251       MT_ZdoEndDevAnnce(pBuf);
+//  252       break;
+//  253 #endif
+//  254 
+//  255 #if defined ( ZDO_USERDESCSET_REQUEST )
+//  256     case MT_ZDO_USER_DESC_SET:
+//  257       MT_ZdoUserDescSet(pBuf);
+//  258       break;
+//  259 #endif
+//  260 
+//  261 #if defined ( ZDO_SERVERDISC_REQUEST )
+//  262     case MT_ZDO_SERVICE_DISC_REQ:
+//  263       MT_ZdoServiceDiscRequest(pBuf);
+//  264       break;
+//  265 #endif
+//  266 
+//  267 #if defined ( ZDO_ENDDEVICEBIND_REQUEST )
+//  268     case MT_ZDO_END_DEV_BIND_REQ:
+//  269       MT_ZdoEndDevBindRequest(pBuf);
+//  270       break;
+//  271 #endif
+//  272 
+//  273 #if defined ( ZDO_BIND_UNBIND_REQUEST )
+//  274     case MT_ZDO_BIND_REQ:
+//  275       MT_ZdoBindRequest(pBuf);
+//  276       break;
+//  277 #endif
+//  278 
+//  279 #if defined ( ZDO_BIND_UNBIND_REQUEST )
+//  280     case MT_ZDO_UNBIND_REQ:
+//  281       MT_ZdoUnbindRequest(pBuf);
+//  282       break;
+//  283 #endif
+//  284 
+//  285 #if defined ( MT_SYS_KEY_MANAGEMENT )
+//  286     case MT_ZDO_SET_LINK_KEY:
+//  287       MT_ZdoSetLinkKey(pBuf);
+//  288       break;
+//  289 
+//  290     case MT_ZDO_REMOVE_LINK_KEY:
+//  291       MT_ZdoRemoveLinkKey(pBuf);
+//  292       break;
+//  293 
+//  294     case MT_ZDO_GET_LINK_KEY:
+//  295       MT_ZdoGetLinkKey(pBuf);
+//  296       break;
+//  297 #endif // MT_SYS_KEY_MANAGEMENT
+//  298 
+//  299 #if defined ( ZDO_MANUAL_JOIN )
+//  300     case MT_ZDO_NWK_DISCOVERY_REQ:
+//  301       MT_ZdoNetworkDiscoveryReq(pBuf);
+//  302       break;
+//  303 
+//  304     case MT_ZDO_JOIN_REQ:
+//  305       MT_ZdoJoinReq(pBuf);
+//  306       break;
+//  307 #endif
+//  308 
+//  309 #if defined ( ZDO_MGMT_NWKDISC_REQUEST )
+//  310     case MT_ZDO_MGMT_NWKDISC_REQ:
+//  311       MT_ZdoMgmtNwkDiscRequest(pBuf);
+//  312       break;
+//  313 #endif
+//  314 
+//  315 #if defined ( ZDO_MGMT_LQI_REQUEST )
+//  316     case MT_ZDO_MGMT_LQI_REQ:
+//  317       MT_ZdoMgmtLqiRequest(pBuf);
+//  318       break;
+//  319 #endif
+//  320 
+//  321 #if defined ( ZDO_MGMT_RTG_REQUEST )
+//  322     case MT_ZDO_MGMT_RTG_REQ:
+//  323       MT_ZdoMgmtRtgRequest(pBuf);
+//  324       break;
+//  325 #endif
+//  326 
+//  327 #if defined ( ZDO_MGMT_BIND_REQUEST )
+//  328     case MT_ZDO_MGMT_BIND_REQ:
+//  329       MT_ZdoMgmtBindRequest(pBuf);
+//  330       break;
+//  331 #endif
+//  332 
+//  333 #if defined ( ZDO_MGMT_LEAVE_REQUEST )
+//  334     case MT_ZDO_MGMT_LEAVE_REQ:
+//  335       MT_ZdoMgmtLeaveRequest(pBuf);
+//  336       break;
+//  337 #endif
+//  338 
+//  339 #if defined ( ZDO_MGMT_JOINDIRECT_REQUEST )
+//  340     case MT_ZDO_MGMT_DIRECT_JOIN_REQ:
+//  341       MT_ZdoMgmtDirectJoinRequest(pBuf);
+//  342       break;
+//  343 #endif
+//  344 
+//  345 #if defined ( ZDO_MGMT_PERMIT_JOIN_REQUEST )
+//  346     case MT_ZDO_MGMT_PERMIT_JOIN_REQ:
+//  347       MT_ZdoMgmtPermitJoinRequest(pBuf);
+//  348       break;
+//  349 #endif
+//  350 
+//  351 #if defined ( ZDO_MGMT_NWKUPDATE_REQUEST )
+//  352     case MT_ZDO_MGMT_NWK_UPDATE_REQ:
+//  353       MT_ZdoMgmtNwkUpdateRequest(pBuf);
+//  354       break;
+//  355 #endif
+//  356 
+//  357 #if defined ( ZDO_NETWORKSTART_REQUEST )
+//  358     case MT_ZDO_STARTUP_FROM_APP:
+//  359       MT_ZdoStartupFromApp(pBuf);
+//  360       break;
+//  361 #endif
+//  362 
+//  363     case MT_ZDO_MSG_CB_REGISTER:
+//  364       MT_ZdoRegisterForZDOMsg(pBuf);
+//  365       break;
+//  366 
+//  367     case MT_ZDO_MSG_CB_REMOVE:
+//  368       MT_ZdoRemoveRegisteredCB(pBuf);
+//  369       break;
+//  370 
+//  371     default:
+//  372       status = MT_RPC_ERR_COMMAND_ID;
+//  373       break;
+//  374   }
+//  375 
+//  376   return status;
+//  377 }
+//  378 
+//  379 /***************************************************************************************************
+//  380  * @fn      MT_ZdoNwkAddrReq
+//  381  *
+//  382  * @brief   Handle a nwk address request.
+//  383  *
+//  384  * @param   pData  - MT message data
+//  385  *
+//  386  * @return  void
+//  387  ***************************************************************************************************/
+//  388 void MT_ZdoNWKAddressRequest(uint8 *pBuf)
+//  389 {
+//  390   uint8 cmdId;
+//  391   uint8 retValue;
+//  392   uint8 reqType;
+//  393   uint8 startIndex;
+//  394   uint8 *pExtAddr;
+//  395 
+//  396   /* parse header */
+//  397   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  398   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  399 
+//  400   /* parse parameters */
+//  401   pExtAddr = pBuf;
+//  402   pBuf += Z_EXTADDR_LEN;
+//  403 
+//  404   /* Request type */
+//  405   reqType = *pBuf++;
+//  406 
+//  407   /* Start index */
+//  408   startIndex = *pBuf;
+//  409 
+//  410   retValue = (uint8)ZDP_NwkAddrReq(pExtAddr, reqType, startIndex, 0);
+//  411 
+//  412   /* Build and send back the response */
+//  413   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  414 }
+//  415 
+//  416 /***************************************************************************************************
+//  417  * @fn      MT_ZdoIEEEAddrRequest
+//  418  *
+//  419  * @brief   Handle a IEEE address request.
+//  420  *
+//  421  * @param   pData  - MT message data
+//  422  *
+//  423  * @return  void
+//  424  ***************************************************************************************************/
+//  425 void MT_ZdoIEEEAddrRequest (uint8 *pBuf)
+//  426 {
+//  427   uint8 cmdId;
+//  428   uint8 retValue;
+//  429   uint16 shortAddr;
+//  430   uint8 reqType;
+//  431   uint8 startIndex;
+//  432 
+//  433   /* parse header */
+//  434   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  435   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  436 
+//  437   /* Dev address */
+//  438   shortAddr = BUILD_UINT16(pBuf[0], pBuf[1]);
+//  439   pBuf += 2;
+//  440 
+//  441   /* request type */
+//  442   reqType = *pBuf++;
+//  443 
+//  444   /* start index */
+//  445   startIndex = *pBuf;
+//  446 
+//  447   retValue = (uint8)ZDP_IEEEAddrReq(shortAddr, reqType, startIndex, 0);
+//  448 
+//  449   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  450 }
+//  451 
+//  452 /***************************************************************************************************
+//  453  * @fn      MT_ZdoNodeDescRequest
+//  454  *
+//  455  * @brief   Handle a Node Descriptor request.
+//  456  *
+//  457  * @param   pData  - MT message data
+//  458  *
+//  459  * @return  void
+//  460  ***************************************************************************************************/
+//  461 void MT_ZdoNodeDescRequest (uint8 *pBuf)
+//  462 {
+//  463   uint8 cmdId;
+//  464   uint8 retValue;
+//  465   zAddrType_t destAddr;
+//  466   uint16 shortAddr;
+//  467 
+//  468   /* parse header */
+//  469   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  470   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  471 
+//  472   /* Destination address */
+//  473   destAddr.addrMode = Addr16Bit;
+//  474   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  475   pBuf += 2;
+//  476 
+//  477   /* Network address of interest */
+//  478   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  479   pBuf += 2;
+//  480 
+//  481   retValue = (uint8)ZDP_NodeDescReq( &destAddr, shortAddr, 0);
+//  482 
+//  483   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  484 }
+//  485 
+//  486 /***************************************************************************************************
+//  487  * @fn      MT_ZdoPowerDescRequest
+//  488  *
+//  489  * @brief   Handle a Power Descriptor request.
+//  490  *
+//  491  * @param   pData  - MT message data
+//  492  *
+//  493  * @return  void
+//  494  ***************************************************************************************************/
+//  495 void MT_ZdoPowerDescRequest(uint8 *pBuf)
+//  496 {
+//  497   uint8 cmdId;
+//  498   uint8 retValue;
+//  499   zAddrType_t destAddr;
+//  500   uint16 shortAddr;
+//  501 
+//  502   /* parse header */
+//  503   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  504   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  505 
+//  506   /* Dev address */
+//  507   destAddr.addrMode = Addr16Bit;
+//  508   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  509   pBuf += 2;
+//  510 
+//  511   /* Network address of interest */
+//  512   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  513   pBuf += 2;
+//  514 
+//  515   retValue = (uint8)ZDP_PowerDescReq( &destAddr, shortAddr, 0);
+//  516 
+//  517   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  518 }
+//  519 
+//  520 /***************************************************************************************************
+//  521  * @fn      MT_ZdoSimpleDescRequest
+//  522  *
+//  523  * @brief   Handle a Simple Descriptor request.
+//  524  *
+//  525  * @param   pBuf  - MT message data
+//  526  *
+//  527  * @return  void
+//  528  ***************************************************************************************************/
+//  529 void MT_ZdoSimpleDescRequest(uint8 *pBuf)
+//  530 {
+//  531   uint8 cmdId;
+//  532   uint8 retValue;
+//  533   uint8 epInt;
+//  534   zAddrType_t destAddr;
+//  535   uint16 shortAddr;
+//  536 
+//  537   /* parse header */
+//  538   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  539   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  540 
+//  541   /* Dev address */
+//  542   destAddr.addrMode = Addr16Bit;
+//  543   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  544   pBuf += 2;
+//  545 
+//  546   /* Network address of interest */
+//  547   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  548   pBuf += 2;
+//  549 
+//  550   /* endpoint/interface */
+//  551   epInt = *pBuf++;
+//  552 
+//  553   retValue = (uint8)ZDP_SimpleDescReq( &destAddr, shortAddr, epInt, 0);
+//  554 
+//  555   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  556 }
+//  557 
+//  558 /***************************************************************************************************
+//  559  * @fn      MT_ZdoActiveEpRequest
+//  560  *
+//  561  * @brief   Handle a Active EP request.
+//  562  *
+//  563  * @param   pBuf  - MT message data
+//  564  *
+//  565  * @return  void
+//  566  ***************************************************************************************************/
+//  567 void MT_ZdoActiveEpRequest(uint8 *pBuf)
+//  568 {
+//  569   uint8 cmdId;
+//  570   uint8 retValue;
+//  571   zAddrType_t destAddr;
+//  572   uint16 shortAddr;
+//  573 
+//  574   /* parse header */
+//  575   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  576   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  577 
+//  578   /* Dev address */
+//  579   destAddr.addrMode = Addr16Bit;
+//  580   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  581   pBuf += 2;
+//  582 
+//  583   /* Network address of interest */
+//  584   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  585   pBuf += 2;
+//  586 
+//  587   retValue = (uint8)ZDP_ActiveEPReq( &destAddr, shortAddr, 0);
+//  588 
+//  589   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  590 }
+//  591 
+//  592 /***************************************************************************************************
+//  593  * @fn      MT_ZdoMatchDescRequest
+//  594  *
+//  595  * @brief   Handle a Match Descriptor request.
+//  596  *
+//  597  * @param   pBuf  - MT message data
+//  598  *
+//  599  * @return  void
+//  600  ***************************************************************************************************/
+//  601 void MT_ZdoMatchDescRequest(uint8 *pBuf)
+//  602 {
+//  603   uint8 cmdId;
+//  604   uint8 retValue = 0;
+//  605   uint8 i, numInClusters, numOutClusters;
+//  606   uint16 profileId;
+//  607   zAddrType_t destAddr;
+//  608   uint16 shortAddr;
+//  609   uint16 inClusters[MTZDO_MAX_MATCH_CLUSTERS], outClusters[MTZDO_MAX_MATCH_CLUSTERS];
+//  610 
+//  611   /* parse header */
+//  612   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  613   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  614 
+//  615   /* Dev address */
+//  616   destAddr.addrMode = Addr16Bit;
+//  617   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  618   pBuf += 2;
+//  619 
+//  620   /* Network address of interest */
+//  621   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  622   pBuf += 2;
+//  623 
+//  624   /* Profile ID */
+//  625   profileId = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  626   pBuf += 2;
+//  627 
+//  628   /* NumInClusters */
+//  629   numInClusters = *pBuf++;
+//  630   if ( numInClusters <= MTZDO_MAX_MATCH_CLUSTERS )
+//  631   {
+//  632     /* IN clusters */
+//  633     for ( i = 0; i < numInClusters; i++ )
+//  634     {
+//  635       inClusters[i] = BUILD_UINT16( pBuf[0], pBuf[1]);
+//  636       pBuf += 2;
+//  637     }
+//  638   }
+//  639   else
+//  640   {
+//  641     retValue = ZDP_INVALID_REQTYPE;
+//  642   }
+//  643 
+//  644   /* NumOutClusters */
+//  645   numOutClusters = *pBuf++;
+//  646   if ( numOutClusters <= MTZDO_MAX_MATCH_CLUSTERS )
+//  647   {
+//  648     /* OUT Clusters */
+//  649     for ( i = 0; i < numOutClusters; i++ )
+//  650     {
+//  651       outClusters[i] = BUILD_UINT16( pBuf[0], pBuf[1]);
+//  652       pBuf += 2;
+//  653     }
+//  654   }
+//  655   else
+//  656   {
+//  657     retValue = ZDP_INVALID_REQTYPE;
+//  658   }
+//  659 
+//  660   if ( retValue == 0 )
+//  661   {
+//  662     retValue = (uint8)ZDP_MatchDescReq( &destAddr, shortAddr, profileId, numInClusters,
+//  663                                        inClusters, numOutClusters, outClusters, 0);
+//  664   }
+//  665 
+//  666   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  667 }
+//  668 
+//  669 /***************************************************************************************************
+//  670  * @fn      MT_ZdoComplexDescRequest
+//  671  *
+//  672  * @brief   Handle a Complex Descriptor request.
+//  673  *
+//  674  * @param   pBuf  - MT message data
+//  675  *
+//  676  * @return  void
+//  677  ***************************************************************************************************/
+//  678 void MT_ZdoComplexDescRequest(uint8 *pBuf)
+//  679 {
+//  680   uint8 cmdId;
+//  681   uint8 retValue;
+//  682   zAddrType_t destAddr;
+//  683   uint16 shortAddr;
+//  684 
+//  685   /* parse header */
+//  686   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  687   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  688 
+//  689   /* Dev address */
+//  690   destAddr.addrMode = Addr16Bit;
+//  691   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  692   pBuf += 2;
+//  693 
+//  694   /* Network address of interest */
+//  695   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  696   pBuf += 2;
+//  697 
+//  698   retValue = (uint8)ZDP_ComplexDescReq( &destAddr, shortAddr, 0);
+//  699 
+//  700   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  701 }
+//  702 
+//  703 /***************************************************************************************************
+//  704  * @fn      MT_ZdoUserDescRequest
+//  705  *
+//  706  * @brief   Handle a User Descriptor request.
+//  707  *
+//  708  * @param   pBuf  - MT message data
+//  709  *
+//  710  * @return  void
+//  711  ***************************************************************************************************/
+//  712 void MT_ZdoUserDescRequest(uint8 *pBuf)
+//  713 {
+//  714   uint8 cmdId;
+//  715   uint8 retValue;
+//  716   zAddrType_t destAddr;
+//  717   uint16 shortAddr;
+//  718 
+//  719   /* parse header */
+//  720   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  721   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  722 
+//  723   /* Dev address */
+//  724   destAddr.addrMode = Addr16Bit;
+//  725   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1]);
+//  726   pBuf += 2;
+//  727 
+//  728   /* Network address of interest */
+//  729   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1]);
+//  730   pBuf += 2;
+//  731 
+//  732   retValue = (uint8)ZDP_UserDescReq( &destAddr, shortAddr, 0);
+//  733 
+//  734   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  735 }
+//  736 
+//  737 /***************************************************************************************************
+//  738  * @fn      MT_ZdoEndDevAnnce
+//  739  *
+//  740  * @brief   Handle a End Device Announce Descriptor request.
+//  741  *
+//  742  * @param   pBuf  - MT message data
+//  743  *
+//  744  * @return  void
+//  745  ***************************************************************************************************/
+//  746 void MT_ZdoEndDevAnnce(uint8 *pBuf)
+//  747 {
+//  748   uint8 cmdId;
+//  749   uint8 retValue;
+//  750   uint16 shortAddr;
+//  751   uint8 *pIEEEAddr;
+//  752 
+//  753   /* parse header */
+//  754   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  755   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  756 
+//  757   /* network address */
+//  758   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  759   pBuf += 2;
+//  760 
+//  761   /* extended address */
+//  762   pIEEEAddr = pBuf;
+//  763   pBuf += Z_EXTADDR_LEN;
+//  764 
+//  765   retValue = (uint8)ZDP_DeviceAnnce( shortAddr, pIEEEAddr, *pBuf, 0);
+//  766 
+//  767   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  768 }
+//  769 
+//  770 /***************************************************************************************************
+//  771  * @fn      MT_ZdoUserDescSet
+//  772  *
+//  773  * @brief   Handle a User Descriptor Set.
+//  774  *
+//  775  * @param   pBuf  - MT message data
+//  776  *
+//  777  * @return  void
+//  778  ***************************************************************************************************/
+//  779 void MT_ZdoUserDescSet(uint8 *pBuf)
+//  780 {
+//  781   uint8 cmdId;
+//  782   uint8 retValue;
+//  783   zAddrType_t destAddr;
+//  784   uint16 shortAddr;
+//  785   UserDescriptorFormat_t userDesc;
+//  786 
+//  787   /* parse header */
+//  788   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  789   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  790 
+//  791   /* Dev address */
+//  792   destAddr.addrMode = Addr16Bit;
+//  793   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  794   pBuf += 2;
+//  795 
+//  796   /* Network address of interest */
+//  797   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  798   pBuf += 2;
+//  799 
+//  800   /* User descriptor */
+//  801   userDesc.len = *pBuf++;
+//  802   osal_memcpy( userDesc.desc, pBuf, userDesc.len );
+//  803   pBuf += 16;
+//  804 
+//  805   retValue = (uint8)ZDP_UserDescSet( &destAddr, shortAddr, &userDesc, 0);
+//  806 
+//  807   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  808 }
+//  809 
+//  810 /***************************************************************************************************
+//  811  * @fn      MT_ZdoServiceDiscRequest
+//  812  *
+//  813  * @brief   Handle a Server Discovery request.
+//  814  *
+//  815  * @param   pBuf  - MT message data
+//  816  *
+//  817  * @return  void
+//  818  ***************************************************************************************************/
+//  819 void MT_ZdoServiceDiscRequest(uint8 *pBuf)
+//  820 {
+//  821   uint8 cmdId;
+//  822   uint8 retValue;
+//  823   uint16 serviceMask;
+//  824 
+//  825   /* parse header */
+//  826   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  827   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  828 
+//  829   /* Service Mask */
+//  830   serviceMask = BUILD_UINT16( pBuf[0], pBuf[1]);
+//  831   pBuf += 2;
+//  832 
+//  833   retValue = (uint8)ZDP_ServerDiscReq( serviceMask, 0);
+//  834 
+//  835   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  836 }
+//  837 
+//  838 /***************************************************************************************************
+//  839  * @fn      MT_ZdoEndDevBindRequest
+//  840  *
+//  841  * @brief   Handle a End Device Bind request.
+//  842  *
+//  843  * @param   pBuf  - MT message data
+//  844  *
+//  845  * @return  void
+//  846  ***************************************************************************************************/
+//  847 void MT_ZdoEndDevBindRequest(uint8 *pBuf)
+//  848 {
+//  849   uint8 cmdId;
+//  850   uint8 retValue = 0;
+//  851   uint8 i, epInt, numInClusters, numOutClusters;
+//  852   zAddrType_t destAddr;
+//  853   uint16 shortAddr;
+//  854   uint16 profileID, inClusters[MTZDO_MAX_ED_BIND_CLUSTERS], outClusters[MTZDO_MAX_ED_BIND_CLUSTERS];
+//  855 
+//  856   /* parse header */
+//  857   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  858   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  859 
+//  860   /* Dev address */
+//  861   destAddr.addrMode = Addr16Bit;
+//  862   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  863   pBuf += 2;
+//  864 
+//  865   /* Local coordinator of the binding */
+//  866   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  867   pBuf += 2;
+//  868 
+//  869   /* For now, skip past the extended address */
+//  870   pBuf += Z_EXTADDR_LEN;
+//  871 
+//  872   /* Endpoint */
+//  873   epInt = *pBuf++;
+//  874 
+//  875   /* Profile ID */
+//  876   profileID = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  877   pBuf += 2;
+//  878 
+//  879   /* NumInClusters */
+//  880   numInClusters = *pBuf++;
+//  881   if ( numInClusters <= MTZDO_MAX_ED_BIND_CLUSTERS )
+//  882   {
+//  883     for ( i = 0; i < numInClusters; i++ )
+//  884     {
+//  885       inClusters[i] = BUILD_UINT16(pBuf[0], pBuf[1]);
+//  886       pBuf += 2;
+//  887     }
+//  888   }
+//  889   else
+//  890   {
+//  891     retValue = ZDP_INVALID_REQTYPE;
+//  892   }
+//  893 
+//  894   /* NumOutClusters */
+//  895   numOutClusters = *pBuf++;
+//  896   if ( numOutClusters <= MTZDO_MAX_ED_BIND_CLUSTERS )
+//  897   {
+//  898     for ( i = 0; i < numOutClusters; i++ )
+//  899     {
+//  900       outClusters[i] = BUILD_UINT16(pBuf[0], pBuf[1]);
+//  901       pBuf += 2;
+//  902     }
+//  903   }
+//  904   else
+//  905   {
+//  906     retValue = ZDP_INVALID_REQTYPE;
+//  907   }
+//  908 
+//  909   if ( retValue == 0 )
+//  910   {
+//  911     retValue = (uint8)ZDP_EndDeviceBindReq( &destAddr, shortAddr, epInt, profileID,
+//  912                                           numInClusters, inClusters, numOutClusters, outClusters, 0);
+//  913   }
+//  914 
+//  915   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  916 }
+//  917 
+//  918 /***************************************************************************************************
+//  919  * @fn      MT_ZdoBindRequest
+//  920  *
+//  921  * @brief   Handle a Bind request.
+//  922  *
+//  923  * @param   pBuf  - MT message data
+//  924  *
+//  925  * @return  void
+//  926  ***************************************************************************************************/
+//  927 void MT_ZdoBindRequest(uint8 *pBuf)
+//  928 {
+//  929   uint8 cmdId;
+//  930   uint8 retValue;
+//  931   zAddrType_t destAddr, devAddr;
+//  932   uint8 *pSrcAddr, *ptr;
+//  933   uint8 srcEPInt, dstEPInt;
+//  934   uint16 clusterID;
+//  935 
+//  936   /* parse header */
+//  937   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  938   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  939 
+//  940   /* Dev address */
+//  941   destAddr.addrMode = Addr16Bit;
+//  942   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  943   pBuf += 2;
+//  944 
+//  945   /* SrcAddress */
+//  946   pSrcAddr = pBuf;
+//  947   pBuf += Z_EXTADDR_LEN;
+//  948 
+//  949   /* SrcEPInt */
+//  950   srcEPInt = *pBuf++;
+//  951 
+//  952   /* ClusterID */
+//  953   clusterID = BUILD_UINT16( pBuf[0], pBuf[1]);
+//  954   pBuf += 2;
+//  955 
+//  956   /* Destination Address mode */
+//  957   devAddr.addrMode = *pBuf++;
+//  958 
+//  959   /* Destination Address */
+//  960   if ( devAddr.addrMode == Addr64Bit )
+//  961   {
+//  962     ptr = pBuf;
+//  963     osal_cpyExtAddr( devAddr.addr.extAddr, ptr );
+//  964   }
+//  965   else
+//  966   {
+//  967     devAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+//  968   }
+//  969   /* The short address occupies LSB two bytes */
+//  970   pBuf += Z_EXTADDR_LEN;
+//  971 
+//  972   /* DstEPInt */
+//  973   dstEPInt = *pBuf;
+//  974 
+//  975   retValue = (uint8)ZDP_BindReq( &destAddr, pSrcAddr, srcEPInt, clusterID, &devAddr, dstEPInt, 0);
+//  976 
+//  977   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+//  978 }
+//  979 
+//  980 /***************************************************************************************************
+//  981  * @fn      MT_ZdoUnbindRequest
+//  982  *
+//  983  * @brief   Handle a Unbind request.
+//  984  *
+//  985  * @param   pBuf  - MT message data
+//  986  *
+//  987  * @return  void
+//  988  ***************************************************************************************************/
+//  989 void MT_ZdoUnbindRequest(uint8 *pBuf)
+//  990 {
+//  991   uint8 cmdId;
+//  992   uint8 retValue;
+//  993   zAddrType_t destAddr, devAddr;
+//  994   uint8 *pSrcAddr, *ptr;
+//  995   uint8 srcEPInt, dstEPInt;
+//  996   uint16 clusterID;
+//  997 
+//  998   /* parse header */
+//  999   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1000   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1001 
+// 1002   /* dev address */
+// 1003   destAddr.addrMode = Addr16Bit;
+// 1004   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1005   pBuf += 2;
+// 1006 
+// 1007   /* SrcAddress */
+// 1008   pSrcAddr = pBuf;
+// 1009   pBuf += Z_EXTADDR_LEN;
+// 1010 
+// 1011   /* SrcEPInt */
+// 1012   srcEPInt = *pBuf++;
+// 1013 
+// 1014   /* ClusterID */
+// 1015   clusterID = BUILD_UINT16( pBuf[0], pBuf[1]);
+// 1016   pBuf += 2;
+// 1017 
+// 1018   /* Destination Address mode */
+// 1019   devAddr.addrMode = *pBuf++;
+// 1020 
+// 1021   /* Destination Address */
+// 1022   if ( devAddr.addrMode == Addr64Bit )
+// 1023   {
+// 1024     ptr = pBuf;
+// 1025     osal_cpyExtAddr( devAddr.addr.extAddr, ptr );
+// 1026   }
+// 1027   else
+// 1028   {
+// 1029     devAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1030   }
+// 1031   /* The short address occupies LSB two bytes */
+// 1032   pBuf += Z_EXTADDR_LEN;
+// 1033 
+// 1034   /* dstEPInt */
+// 1035   dstEPInt = *pBuf;
+// 1036 
+// 1037   retValue = (uint8)ZDP_UnbindReq( &destAddr, pSrcAddr, srcEPInt, clusterID, &devAddr, dstEPInt, 0);
+// 1038 
+// 1039   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1040 }
+// 1041 
+// 1042 #if defined (MT_SYS_KEY_MANAGEMENT)
+// 1043 /***************************************************************************************************
+// 1044  * @fn      MT_ZdoSetLinkKey
+// 1045  *
+// 1046  * @brief   Set an application or trust center link key.
+// 1047  *
+// 1048  * @param   pBuf  - MT message data
+// 1049  *
+// 1050  * @return  void
+// 1051  ***************************************************************************************************/
+// 1052 void MT_ZdoSetLinkKey(uint8 *pBuf)
+// 1053 {
+// 1054   uint8 cmdId;
+// 1055   uint8 retValue;
+// 1056   uint8 *pExtAddr;
+// 1057   uint8 *pKey;
+// 1058   uint16 shortAddr;
+// 1059 
+// 1060   /* parse header */
+// 1061   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1062   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1063 
+// 1064   /* ShortAddr */
+// 1065   shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1066   pBuf += 2;
+// 1067 
+// 1068   /* Extended Addr */
+// 1069   pExtAddr = pBuf;
+// 1070   pBuf += Z_EXTADDR_LEN;
+// 1071 
+// 1072   /* Key data */
+// 1073   pKey = pBuf;
+// 1074 
+// 1075   retValue = (uint8)ZDSecMgrAddLinkKey( shortAddr, pExtAddr, pKey);
+// 1076 
+// 1077   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1078 }
+// 1079 
+// 1080 /***************************************************************************************************
+// 1081  * @fn      MT_ZdoRemoveLinkKey
+// 1082  *
+// 1083  * @brief   Remove an application or trust center link key.
+// 1084  *
+// 1085  * @param   pBuf  - MT message data
+// 1086  *
+// 1087  * @return  void
+// 1088  ***************************************************************************************************/
+// 1089 void MT_ZdoRemoveLinkKey(uint8 *pBuf)
+// 1090 {
+// 1091   uint8 cmdId;
+// 1092   uint8 retValue;
+// 1093   uint8 *pExtAddr;
+// 1094 
+// 1095   /* parse header */
+// 1096   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1097   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1098 
+// 1099   /* ShortAddr */
+// 1100   pExtAddr = pBuf;
+// 1101 
+// 1102   retValue = ZDSecMgrDeviceRemoveByExtAddr( pExtAddr );
+// 1103 
+// 1104   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1105 }
+// 1106 
+// 1107 /***************************************************************************************************
+// 1108  * @fn      MT_ZdoGetLinkKey
+// 1109  *
+// 1110  * @brief   Get the application link key.
+// 1111  *
+// 1112  * @param   pBuf  - MT message data
+// 1113  *
+// 1114  * @return  void
+// 1115  ***************************************************************************************************/
+// 1116 void MT_ZdoGetLinkKey(uint8 *pBuf)
+// 1117 {
+// 1118   uint8 cmdId;
+// 1119   uint8 retValue;
+// 1120   uint8 *pExtAddr;
+// 1121   uint8 *retBuf = NULL;
+// 1122   uint8 len;
+// 1123   APSME_LinkKeyData_t *pApsLinkKey = NULL;
+// 1124   uint16 apsLinkKeyNvId;
+// 1125 
+// 1126   // parse header
+// 1127   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1128   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1129 
+// 1130   // Extended Address
+// 1131   pExtAddr = pBuf;
+// 1132 
+// 1133   // Fetch the key NV ID
+// 1134   retValue = APSME_LinkKeyNVIdGet( pExtAddr, &apsLinkKeyNvId );
+// 1135 
+// 1136   if (retValue == ZSuccess)
+// 1137   {
+// 1138     if ((pApsLinkKey = (APSME_LinkKeyData_t *)osal_mem_alloc(sizeof(APSME_LinkKeyData_t))) != NULL)
+// 1139     {
+// 1140       // retrieve key from NV
+// 1141       if (osal_nv_read( apsLinkKeyNvId, 0,
+// 1142                        sizeof(APSME_LinkKeyData_t), pApsLinkKey) != SUCCESS)
+// 1143       {
+// 1144         retValue = ZNwkUnknownDevice;
+// 1145       }
+// 1146     }
+// 1147     else
+// 1148     {
+// 1149       retValue = ZNwkUnknownDevice;
+// 1150     }
+// 1151   }
+// 1152 
+// 1153   // Construct the response message
+// 1154   len = MT_ZDO_STATUS_LEN + Z_EXTADDR_LEN + SEC_KEY_LEN; // status + extAddr + key
+// 1155   if ((retBuf = (uint8 *)osal_mem_alloc(len)) != NULL)
+// 1156   {
+// 1157     if (retValue == ZSuccess)
+// 1158     {
+// 1159       // Extended Address
+// 1160       osal_memcpy( &(retBuf[1]), pExtAddr, Z_EXTADDR_LEN );
+// 1161 
+// 1162       // Key data
+// 1163       osal_memcpy( &(retBuf[1 + Z_EXTADDR_LEN]), pApsLinkKey->key, SEC_KEY_LEN );
+// 1164     }
+// 1165     else
+// 1166     {
+// 1167       // Failed case - set the rest fields to all FF
+// 1168       osal_memset( &(retBuf[1]), 0xFF, Z_EXTADDR_LEN + SEC_KEY_LEN );
+// 1169     }
+// 1170 
+// 1171     retBuf[0] = retValue;  // Status
+// 1172 
+// 1173     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, len, retBuf);
+// 1174 
+// 1175     // clear retBuf because it contains key data and free allocated memory
+// 1176     osal_memset(retBuf, 0x00, len);
+// 1177 
+// 1178     osal_mem_free(retBuf);
+// 1179   }
+// 1180 
+// 1181   // clear copy of key in RAM
+// 1182   if (pApsLinkKey != NULL)
+// 1183   {
+// 1184     osal_memset(pApsLinkKey, 0x00, sizeof(APSME_LinkKeyData_t));
+// 1185 
+// 1186     osal_mem_free(pApsLinkKey);
+// 1187   }
+// 1188 
+// 1189   return;
+// 1190 }
+// 1191 #endif // MT_SYS_KEY_MANAGEMENT
+// 1192 
+// 1193 #if defined (MT_ZDO_MGMT)
+// 1194 /***************************************************************************************************
+// 1195  * @fn      MT_ZdoMgmtNwkDiscRequest
+// 1196  *
+// 1197  * @brief   Handle a Mgmt Nwk Discovery request.
+// 1198  *
+// 1199  * @param   pBuf  - MT message data
+// 1200  *
+// 1201  * @return  void
+// 1202  ***************************************************************************************************/
+// 1203 void MT_ZdoMgmtNwkDiscRequest(uint8 *pBuf)
+// 1204 {
+// 1205   uint8 cmdId;
+// 1206   uint8 retValue;
+// 1207   zAddrType_t destAddr;
+// 1208   uint32 scanChannels;
+// 1209   uint8 scanDuration, startIndex;
+// 1210 
+// 1211   /* parse header */
+// 1212   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1213   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1214 
+// 1215   /* Dev address */
+// 1216   destAddr.addrMode = Addr16Bit;
+// 1217   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1218   pBuf += 2;
+// 1219 
+// 1220   /* Scan Channels */
+// 1221   scanChannels = BUILD_UINT32( pBuf[0], pBuf[1], pBuf[2], pBuf[3] );
+// 1222   pBuf += 4;
+// 1223 
+// 1224   /* Scan Duration */
+// 1225   scanDuration = *pBuf++;
+// 1226 
+// 1227   /* Start Index */
+// 1228   startIndex = *pBuf;
+// 1229 
+// 1230   retValue = (uint8)ZDP_MgmtNwkDiscReq( &destAddr, scanChannels, scanDuration, startIndex, 0);
+// 1231 
+// 1232   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1233 }
+// 1234 
+// 1235 /***************************************************************************************************
+// 1236  * @fn      MT_ZdoMgmtLqiRequest
+// 1237  *
+// 1238  * @brief   Handle a Mgmt Lqi request.
+// 1239  *
+// 1240  * @param   pBuf  - MT message data
+// 1241  *
+// 1242  * @return  void
+// 1243  ***************************************************************************************************/
+// 1244 void MT_ZdoMgmtLqiRequest(uint8 *pBuf)
+// 1245 {
+// 1246   uint8 cmdId;
+// 1247   uint8 retValue;
+// 1248   zAddrType_t destAddr;
+// 1249   uint8 startIndex;
+// 1250 
+// 1251   /* parse header */
+// 1252   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1253   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1254 
+// 1255   /* Dev address */
+// 1256   destAddr.addrMode = Addr16Bit;
+// 1257   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1258   pBuf += 2;
+// 1259 
+// 1260   /* Start Index */
+// 1261   startIndex = *pBuf;
+// 1262 
+// 1263   retValue = (uint8)ZDP_MgmtLqiReq( &destAddr, startIndex, 0);
+// 1264 
+// 1265   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1266 }
+// 1267 
+// 1268 /***************************************************************************************************
+// 1269  * @fn      MT_ZdoMgmtRtgRequest
+// 1270  *
+// 1271  * @brief   Handle a Mgmt Rtg request.
+// 1272  *
+// 1273  * @param   pBuf  - MT message data
+// 1274  *
+// 1275  * @return  void
+// 1276  ***************************************************************************************************/
+// 1277 void MT_ZdoMgmtRtgRequest(uint8 *pBuf)
+// 1278 {
+// 1279   uint8 cmdId;
+// 1280   uint8 retValue;
+// 1281   zAddrType_t destAddr;
+// 1282   uint8 startIndex;
+// 1283 
+// 1284   /* parse header */
+// 1285   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1286   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1287 
+// 1288   /* Dev Address */
+// 1289   destAddr.addrMode = Addr16Bit;
+// 1290   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1]);
+// 1291   pBuf += 2;
+// 1292 
+// 1293   /* Start Index */
+// 1294   startIndex = *pBuf;
+// 1295 
+// 1296   retValue = (byte)ZDP_MgmtRtgReq( &destAddr, startIndex, 0);
+// 1297 
+// 1298   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1299 }
+// 1300 
+// 1301 /***************************************************************************************************
+// 1302  * @fn      MT_ZdoMgmtBindRequest
+// 1303  *
+// 1304  * @brief   Handle a Mgmt Bind request.
+// 1305  *
+// 1306  * @param   pBuf  - MT message data
+// 1307  *
+// 1308  * @return  void
+// 1309  ***************************************************************************************************/
+// 1310 void MT_ZdoMgmtBindRequest(uint8 *pBuf)
+// 1311 {
+// 1312   uint8 cmdId;
+// 1313   uint8 retValue;
+// 1314   zAddrType_t destAddr;
+// 1315   uint8 startIndex;
+// 1316 
+// 1317   /* parse header */
+// 1318   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1319   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1320 
+// 1321   /* Dev Address */
+// 1322   destAddr.addrMode = Addr16Bit;
+// 1323   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1324   pBuf += 2;
+// 1325 
+// 1326   /* Start Index */
+// 1327   startIndex = *pBuf;
+// 1328 
+// 1329   retValue = (uint8)ZDP_MgmtBindReq( &destAddr, startIndex, 0);
+// 1330 
+// 1331   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1332 }
+// 1333 
+// 1334 /***************************************************************************************************
+// 1335  * @fn      MT_ZdoMgmtLeaveRequest
+// 1336  *
+// 1337  * @brief   Handle a Mgmt Leave request.
+// 1338  *
+// 1339  * @param   pBuf  - MT message data
+// 1340  *
+// 1341  * @return  void
+// 1342  ***************************************************************************************************/
+// 1343 void MT_ZdoMgmtLeaveRequest(uint8 *pBuf)
+// 1344 {
+// 1345   uint8 cmdId;
+// 1346   uint8 retValue;
+// 1347   zAddrType_t destAddr;
+// 1348   uint8 *pIEEEAddr;
+// 1349   uint8 removeChildren, rejoin;
+// 1350 
+// 1351   /* parse header */
+// 1352   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1353   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1354 
+// 1355   /* Destination Address */
+// 1356   destAddr.addrMode = Addr16Bit;
+// 1357   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1358   pBuf += 2;
+// 1359 
+// 1360   /* IEEE address */
+// 1361   pIEEEAddr = pBuf;
+// 1362   pBuf += Z_EXTADDR_LEN;
+// 1363 
+// 1364   /* Remove Children */
+// 1365   removeChildren = *pBuf++;
+// 1366 
+// 1367   /* Rejoin */
+// 1368   rejoin = *pBuf;
+// 1369 
+// 1370   retValue = (byte)ZDP_MgmtLeaveReq( &destAddr, pIEEEAddr, removeChildren, rejoin, 0);
+// 1371 
+// 1372   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1373 }
+// 1374 
+// 1375 
+// 1376 /***************************************************************************************************
+// 1377  * @fn      MT_ZdoMgmtDirectJoinRequest
+// 1378  *
+// 1379  * @brief   Handle a Mgmt Direct Join request.
+// 1380  *
+// 1381  * @param   pBuf  - MT message data
+// 1382  *
+// 1383  * @return  void
+// 1384  ***************************************************************************************************/
+// 1385 void MT_ZdoMgmtDirectJoinRequest(uint8 *pBuf)
+// 1386 {
+// 1387   uint8 cmdId;
+// 1388   uint8 retValue;
+// 1389   zAddrType_t destAddr;
+// 1390   uint8 *deviceAddr;
+// 1391   uint8 capInfo;
+// 1392 
+// 1393   /* parse header */
+// 1394   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1395   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1396 
+// 1397   /* Destination Address */
+// 1398   destAddr.addrMode = Addr16Bit;
+// 1399   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1400   pBuf += 2;
+// 1401 
+// 1402   /* Device Address */
+// 1403   deviceAddr = pBuf;
+// 1404   pBuf += Z_EXTADDR_LEN;
+// 1405 
+// 1406   /* Capability information */
+// 1407   capInfo = *pBuf;
+// 1408 
+// 1409   retValue = (uint8)ZDP_MgmtDirectJoinReq( &destAddr, deviceAddr, capInfo, 0);
+// 1410 
+// 1411   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1412 }
+// 1413 
+// 1414 /***************************************************************************************************
+// 1415  * @fn      MT_ZdoMgmtPermitJoinRequest
+// 1416  *
+// 1417  * @brief   Handle a Mgmt Permit Join request.
+// 1418  *
+// 1419  * @param   pBuf  - MT message data
+// 1420  *
+// 1421  * @return  void
+// 1422  ***************************************************************************************************/
+// 1423 void MT_ZdoMgmtPermitJoinRequest(uint8 *pBuf)
+// 1424 {
+// 1425   uint8 cmdId;
+// 1426   uint8 retValue;
+// 1427   zAddrType_t destAddr;
+// 1428   uint8 duration, tcSignificance;
+// 1429 
+// 1430   /* parse header */
+// 1431   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1432   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1433 
+// 1434   /* Destination Address */
+// 1435   destAddr.addrMode = Addr16Bit;
+// 1436   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1437   pBuf += 2;
+// 1438 
+// 1439   /* Duration */
+// 1440   duration = *pBuf++;
+// 1441 
+// 1442   /* Trust center significance */
+// 1443   tcSignificance = *pBuf;
+// 1444 
+// 1445   retValue = (byte)ZDP_MgmtPermitJoinReq( &destAddr, duration, tcSignificance, 0);
+// 1446 
+// 1447   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1448 }
+// 1449 
+// 1450 /***************************************************************************************************
+// 1451  * @fn      MT_ZdoMgmtNwkUpdateRequest
+// 1452  *
+// 1453  * @brief   Handle a Mgmt Nwk Update request.
+// 1454  *
+// 1455  * @param   pBuf  - MT message data
+// 1456  *
+// 1457  * @return  void
+// 1458  ***************************************************************************************************/
+// 1459 void MT_ZdoMgmtNwkUpdateRequest(uint8 *pBuf)
+// 1460 {
+// 1461   uint8 cmdId;
+// 1462   uint8 retValue;
+// 1463   zAddrType_t destAddr;
+// 1464   uint32 channelMask;
+// 1465   uint8 scanDuration, scanCount;
+// 1466   uint16 nwkManagerAddr;
+// 1467 
+// 1468     /* parse header */
+// 1469   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1470   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1471 
+// 1472   /* Destination address */
+// 1473   destAddr.addr.shortAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1474   pBuf += 2;
+// 1475 
+// 1476   /* Destination address mode */
+// 1477   destAddr.addrMode = *pBuf++;
+// 1478 
+// 1479   channelMask = BUILD_UINT32( pBuf[0], pBuf[1], pBuf[2], pBuf[3]);
+// 1480   pBuf += 4;
+// 1481 
+// 1482   /* Scan duration */
+// 1483   scanDuration = *pBuf++;
+// 1484 
+// 1485   /* Scan count */
+// 1486   scanCount = *pBuf++;
+// 1487 
+// 1488   /* NWK manager address */
+// 1489   nwkManagerAddr = BUILD_UINT16( pBuf[0], pBuf[1] );
+// 1490 
+// 1491   /* Send the Management Network Update request */
+// 1492   retValue = (uint8)ZDP_MgmtNwkUpdateReq( &destAddr, channelMask, scanDuration,
+// 1493                                           scanCount, _NIB.nwkUpdateId+1, nwkManagerAddr );
+// 1494 
+// 1495   /*
+// 1496     Since we don't recevied our own broadcast messages, we should
+// 1497     send a unicast copy of the message to ourself.
+// 1498   */
+// 1499   if ( destAddr.addrMode == AddrBroadcast )
+// 1500   {
+// 1501     destAddr.addrMode = Addr16Bit;
+// 1502     destAddr.addr.shortAddr = _NIB.nwkDevAddress;
+// 1503     retValue = (uint8) ZDP_MgmtNwkUpdateReq( &destAddr, channelMask, scanDuration,
+// 1504                                              scanCount, _NIB.nwkUpdateId+1, nwkManagerAddr );
+// 1505   }
+// 1506 
+// 1507   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue);
+// 1508 }
+// 1509 #endif /* MT_ZDO_MGMT */
+// 1510 
+// 1511 /***************************************************************************************************
+// 1512  * @fn      MT_ZdoStartupFromApp
+// 1513  *
+// 1514  * @brief   Handle a Startup from App request.
+// 1515  *
+// 1516  * @param   pBuf  - MT message data
+// 1517  *
+// 1518  * @return  void
+// 1519  ***************************************************************************************************/
+// 1520 void MT_ZdoStartupFromApp(uint8 *pBuf)
+// 1521 {
+// 1522   uint8 cmd0, cmd1, retValue;
+// 1523 
+// 1524   /* parse header */
+// 1525   cmd0 = pBuf[MT_RPC_POS_CMD0];
+// 1526   cmd1 = pBuf[MT_RPC_POS_CMD1];
+// 1527   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1528 
+// 1529   retValue = ZDOInitDevice(100);
+// 1530 
+// 1531   if (MT_RPC_CMD_SREQ == (cmd0 & MT_RPC_CMD_TYPE_MASK))
+// 1532   {
+// 1533     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP|(uint8)MT_RPC_SYS_ZDO), cmd1,1, &retValue);
+// 1534   }
+// 1535 }
+// 1536 
+// 1537 
+// 1538 /***************************************************************************************************
+// 1539  * @fn      MT_ZdoNetworkDiscoveryReq
+// 1540  *
+// 1541  * @brief   Handle a ZDO Network Discovery request.
+// 1542  *
+// 1543  * @param   pBuf  - MT message data
+// 1544  *
+// 1545  * @return  void
+// 1546  ***************************************************************************************************/
+// 1547 void MT_ZdoNetworkDiscoveryReq(uint8 *pBuf)
+// 1548 {
+// 1549   uint8  retValue = ZFailure;
+// 1550   uint8  cmdId;
+// 1551   uint32 scanChannels;
+// 1552 
+// 1553   /* parse header */
+// 1554   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1555   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1556 
+// 1557   /* Packet format */
+// 1558   /* scan channels (4) | scan duration (1) */
+// 1559 
+// 1560   /* Scan channels */
+// 1561   scanChannels = osal_build_uint32(pBuf, 4);
+// 1562   pBuf += 4;
+// 1563 
+// 1564   retValue = ZDApp_NetworkDiscoveryReq(scanChannels, *pBuf);
+// 1565 
+// 1566   // Register ZDO callback for MT to handle the network discovery confirm
+// 1567   // and beacon notification confirm
+// 1568   ZDO_RegisterForZdoCB( ZDO_NWK_DISCOVERY_CNF_CBID, &MT_ZdoNwkDiscoveryCnfCB );
+// 1569   ZDO_RegisterForZdoCB( ZDO_BEACON_NOTIFY_IND_CBID, &MT_ZdoBeaconIndCB );
+// 1570 
+// 1571   /* Build and send back the response */
+// 1572   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue );
+// 1573 }
+// 1574 
+// 1575 
+// 1576 /***************************************************************************************************
+// 1577  * @fn      MT_ZdoJoinReq
+// 1578  *
+// 1579  * @brief   Handle a ZDO Join request.
+// 1580  *
+// 1581  * @param   pBuf  - MT message data
+// 1582  *
+// 1583  * @return  void
+// 1584  ***************************************************************************************************/
+// 1585 void MT_ZdoJoinReq(uint8 *pBuf)
+// 1586 {
+// 1587   uint8  retValue = ZFailure;
+// 1588   uint8  cmdId;
+// 1589   uint16 panId;
+// 1590   uint16 chosenParent;
+// 1591 
+// 1592   /* parse header */
+// 1593   cmdId = pBuf[MT_RPC_POS_CMD1];
+// 1594   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1595 
+// 1596   /* Packet format */
+// 1597   /* channel     (1) | panID (2) | extendedPanID (8) | chosenParent (2) |
+// 1598    * parentDepth (1) | stackProfile  (1)
+// 1599    */
+// 1600 
+// 1601   panId        = BUILD_UINT16(pBuf[1], pBuf[2]);
+// 1602   chosenParent = BUILD_UINT16(pBuf[11], pBuf[12]);
+// 1603 
+// 1604   retValue = ZDApp_JoinReq(pBuf[0], panId, &(pBuf[3]), chosenParent, pBuf[13], pBuf[14]);
+// 1605 
+// 1606   /* Register for MT to receive Join Confirm */
+// 1607   ZDO_RegisterForZdoCB( ZDO_JOIN_CNF_CBID, &MT_ZdoJoinCnfCB );
+// 1608 
+// 1609   /* Build and send back the response */
+// 1610   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_ZDO), cmdId, 1, &retValue );
+// 1611 
+// 1612 }
+// 1613 
+// 1614 /***************************************************************************************************
+// 1615  * @fn          MT_ZdoNwkDiscoveryCnfCB
+// 1616  *
+// 1617  * @brief       Send an indication to inform host device the completion of
+// 1618  *              network discovery scan
+// 1619  *
+// 1620  * @param       pStr - pointer to a parameter and a structure of parameters
+// 1621  *
+// 1622  * @return      void
+// 1623  ***************************************************************************************************/
+// 1624 void *MT_ZdoNwkDiscoveryCnfCB ( void *pStr )
+// 1625 {
+// 1626   /* pStr: status (uint8) */
+// 1627   /* Packet Format */
+// 1628   /* Status (1) */
+// 1629 
+// 1630   // Scan completed. De-register the callback with ZDO
+// 1631   ZDO_DeregisterForZdoCB( ZDO_NWK_DISCOVERY_CNF_CBID );
+// 1632   ZDO_DeregisterForZdoCB( ZDO_BEACON_NOTIFY_IND_CBID );
+// 1633 
+// 1634   // Send the buffered beacon indication
+// 1635   MT_ZdoBeaconIndCB ( NULL );
+// 1636 
+// 1637   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 1638                                          MT_ZDO_NWK_DISCOVERY_CNF, 1, pStr);
+// 1639   return NULL;
+// 1640 }
+// 1641 
+// 1642 
+// 1643 
+// 1644 /***************************************************************************************************
+// 1645  * @fn          MT_ZdoBeaconIndCB
+// 1646  *
+// 1647  * @brief       Send an indication to host device of a beacon notification
+// 1648  *
+// 1649  * @param       pStr -  pointer to a parameter and a structure of parameters
+// 1650  *
+// 1651  * @return      void
+// 1652  ***************************************************************************************************/
+// 1653 void *MT_ZdoBeaconIndCB ( void *pStr )
+// 1654 {
+// 1655   zdoBeaconInd_t *pBeacon = pStr;
+// 1656   uint8 *pTmp;
+// 1657 
+// 1658   /* Packet Format */
+// 1659   /* devCnt (1) | device #1 (21) | device #2 (21) |... | device #n (21) */
+// 1660 
+// 1661   if( pStr != NULL)
+// 1662   {
+// 1663     if( pBeaconIndBuf == NULL )
+// 1664     {
+// 1665       // If pBeaconIndBuf has not been allocated yet
+// 1666       // allocate memory now with MAX_UART_TX_BUFF
+// 1667       if( NULL == (pBeaconIndBuf = (uint8 *)osal_mem_alloc(MT_ZDO_BEACON_IND_PACK_LEN)))
+// 1668       {
+// 1669         // Memory failure
+// 1670         return NULL;
+// 1671       }
+// 1672       pBeaconIndBuf[0] = 0; // First byte is devCnt. Initialize to 0.
+// 1673     }
+// 1674 
+// 1675     // Fill in the buffer with the beacon indication
+// 1676     pTmp = pBeaconIndBuf + (1 + pBeaconIndBuf[0] * MT_ZDO_BEACON_IND_LEN);
+// 1677     *pTmp++ = LO_UINT16(pBeacon->sourceAddr);
+// 1678     *pTmp++ = HI_UINT16(pBeacon->sourceAddr);
+// 1679     *pTmp++ = LO_UINT16(pBeacon->panID);
+// 1680     *pTmp++ = HI_UINT16(pBeacon->panID);
+// 1681     *pTmp++ = pBeacon->logicalChannel;
+// 1682     *pTmp++ = pBeacon->permitJoining;
+// 1683     *pTmp++ = pBeacon->routerCapacity;
+// 1684     *pTmp++ = pBeacon->deviceCapacity;
+// 1685     *pTmp++ = pBeacon->protocolVersion;
+// 1686     *pTmp++ = pBeacon->stackProfile;
+// 1687     *pTmp++ = pBeacon->LQI;
+// 1688     *pTmp++ = pBeacon->depth;
+// 1689     *pTmp++ = pBeacon->updateID;
+// 1690     osal_memcpy( pTmp, pBeacon->extendedPanID, Z_EXTADDR_LEN);
+// 1691 
+// 1692     pBeaconIndBuf[0] += 1; // Increment the devCnt
+// 1693 
+// 1694     // Check if the buffer can fit in another beacon
+// 1695     if( ((pBeaconIndBuf[0] + 1) * MT_ZDO_BEACON_IND_LEN + 1) > MT_ZDO_BEACON_IND_PACK_LEN )
+// 1696     {
+// 1697       // Packet full, send the packet over MT
+// 1698       MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 1699                                    MT_ZDO_BEACON_NOTIFY_IND,
+// 1700                                    (pBeaconIndBuf[0] * MT_ZDO_BEACON_IND_LEN + 1), pBeaconIndBuf);
+// 1701       pBeaconIndBuf[0] = 0; // Reset the devCnt back to zero
+// 1702     }
+// 1703   }
+// 1704   else
+// 1705   {
+// 1706     if( (pBeaconIndBuf != NULL) && (pBeaconIndBuf[0] != 0) )
+// 1707     {
+// 1708       // End of beacon indication, send the packet over MT
+// 1709       MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 1710                                    MT_ZDO_BEACON_NOTIFY_IND,
+// 1711                                    (pBeaconIndBuf[0] * MT_ZDO_BEACON_IND_LEN + 1), pBeaconIndBuf);
+// 1712     }
+// 1713     // Free the allocated memory
+// 1714     if(pBeaconIndBuf != NULL)
+// 1715     {
+// 1716       osal_mem_free(pBeaconIndBuf);
+// 1717       pBeaconIndBuf = NULL;
+// 1718     }
+// 1719   }
+// 1720 
+// 1721   return NULL;
+// 1722 }
+// 1723 
+// 1724 
+// 1725 
+// 1726 /***************************************************************************************************
+// 1727  * @fn          MT_ZdoJoinCnfCB
+// 1728  *
+// 1729  * @brief       Handle the ZDO Join Confirm from ZDO
+// 1730  *
+// 1731  * @param       pStr - pointer to a parameter and a structure of parameters
+// 1732  *
+// 1733  * @return      void
+// 1734  ***************************************************************************************************/
+// 1735 void *MT_ZdoJoinCnfCB ( void *pStr )
+// 1736 {
+// 1737   /* pStr: zdoJoinCnf_t* */
+// 1738   /* Packet Format */
+// 1739   /* Status (1) | device addr (2) | parent addr (2) */
+// 1740 
+// 1741   uint8 buf[MT_ZDO_JOIN_CNF_LEN];
+// 1742   zdoJoinCnf_t *joinCnf = pStr;
+// 1743 
+// 1744   /* Join Complete. De-register the callback with ZDO */
+// 1745   ZDO_DeregisterForZdoCB( ZDO_JOIN_CNF_CBID );
+// 1746 
+// 1747   buf[0] = joinCnf->status;
+// 1748   buf[1] = LO_UINT16( joinCnf->deviceAddr );
+// 1749   buf[2] = HI_UINT16( joinCnf->deviceAddr );
+// 1750   buf[3] = LO_UINT16( joinCnf->parentAddr );
+// 1751   buf[4] = HI_UINT16( joinCnf->parentAddr );
+// 1752 
+// 1753   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 1754                                MT_ZDO_JOIN_CNF, MT_ZDO_JOIN_CNF_LEN, buf);
+// 1755 
+// 1756   return NULL;
+// 1757 }
+// 1758 
+// 1759 /*************************************************************************************************
+// 1760  * @fn      MT_ZdoRegisterForZDOMsg(pBuf);
+// 1761  *
+// 1762  * @brief   MT proxy for ZDO_RegisterForZDOMsg.
+// 1763  *
+// 1764  * @param   pBuf  - MT message data
+// 1765  *
+// 1766  * @return  void
+// 1767  *************************************************************************************************/
+// 1768 void MT_ZdoRegisterForZDOMsg(uint8 *pBuf)
+// 1769 {
+// 1770   uint8 cmd0, cmd1, tmp;
+// 1771   uint16 cId;
+// 1772 
+// 1773   /* parse header */
+// 1774   cmd0 = pBuf[MT_RPC_POS_CMD0];
+// 1775   cmd1 = pBuf[MT_RPC_POS_CMD1];
+// 1776   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1777 
+// 1778   cId = BUILD_UINT16(pBuf[0], pBuf[1]);
+// 1779   tmp = ZDO_RegisterForZDOMsg(MT_TaskID, cId);
+// 1780 
+// 1781   if (MT_RPC_CMD_SREQ == (cmd0 & MT_RPC_CMD_TYPE_MASK))
+// 1782   {
+// 1783     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP|(uint8)MT_RPC_SYS_ZDO), cmd1, 1, &tmp);
+// 1784   }
+// 1785 }
+// 1786 
+// 1787 /*************************************************************************************************
+// 1788  * @fn      MT_ZdoRemoveRegisteredCB(pBuf);
+// 1789  *
+// 1790  * @brief   MT proxy for ZDO_RemoveRegisteredCB.
+// 1791  *
+// 1792  * @param   pBuf  - MT message data
+// 1793  *
+// 1794  * @return  void
+// 1795  *************************************************************************************************/
+// 1796 void MT_ZdoRemoveRegisteredCB(uint8 *pBuf)
+// 1797 {
+// 1798   uint8 cmd0, cmd1, tmp;
+// 1799   uint16 cId;
+// 1800 
+// 1801   /* parse header */
+// 1802   cmd0 = pBuf[MT_RPC_POS_CMD0];
+// 1803   cmd1 = pBuf[MT_RPC_POS_CMD1];
+// 1804   pBuf += MT_RPC_FRAME_HDR_SZ;
+// 1805 
+// 1806   cId = BUILD_UINT16(pBuf[0], pBuf[1]);
+// 1807   tmp = ZDO_RemoveRegisteredCB(MT_TaskID, cId);
+// 1808 
+// 1809   if (MT_RPC_CMD_SREQ == (cmd0 & MT_RPC_CMD_TYPE_MASK))
+// 1810   {
+// 1811     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP|(uint8)MT_RPC_SYS_ZDO), cmd1, 1, &tmp);
+// 1812   }
+// 1813 }
+// 1814 
+// 1815 #endif /* MT_ZDO_FUNC */
+// 1816 
+// 1817 
+// 1818 /***************************************************************************************************
+// 1819  * Callback handling function
+// 1820  ***************************************************************************************************/
+// 1821 
+// 1822 #if defined (MT_ZDO_CB_FUNC)
+// 1823 
+// 1824 /***************************************************************************************************
+// 1825  * @fn      MT_ZdoStateChangeCB
+// 1826  *
+// 1827  * @brief   Handle state change OSAL message from ZDO.
+// 1828  *
+// 1829  * @param   pMsg  - Message data
+// 1830  *
+// 1831  * @return  void
+// 1832  */
+// 1833 void MT_ZdoStateChangeCB(osal_event_hdr_t *pMsg)
+// 1834 {
+// 1835   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 1836                                        MT_ZDO_STATE_CHANGE_IND, 1, &pMsg->status);
+// 1837 }
+// 1838 
+// 1839 /***************************************************************************************************
+// 1840  * @fn     MT_ZdoDirectCB()
+// 1841  *
+// 1842  * @brief  ZDO direct callback.  Build an MT message directly from the
+// 1843  *         over-the-air ZDO message.
+// 1844  *
+// 1845  * @param  pData - Incoming AF frame.
+// 1846  *
+// 1847  * @return  none
+// 1848  ***************************************************************************************************/
+// 1849 void MT_ZdoDirectCB( afIncomingMSGPacket_t *pData, zdoIncomingMsg_t *inMsg )
+// 1850 {
+// 1851   uint8 len, *pBuf;
+// 1852   uint16 origClusterId;
+// 1853 
+// 1854   // save original value because MT_ZdoHandleExceptions() function could modify pData->clusterId
+// 1855   origClusterId = pData->clusterId;
+// 1856 
+// 1857   // Is the message an exception or not a response?
+// 1858   if ( MT_ZdoHandleExceptions( pData, inMsg ) || ( (origClusterId & ZDO_RESPONSE_BIT) == 0 ) )
+// 1859   {
+// 1860     return;  // Handled somewhere else or not needed.
+// 1861   }
+// 1862 
+// 1863   /* ZDO data starts after one-byte sequence number and the msg buffer length includes
+// 1864    * two bytes for srcAddr.
+// 1865    */
+// 1866   len = pData->cmd.DataLength - 1 + sizeof(uint16);
+// 1867 
+// 1868   if (NULL != (pBuf = (uint8 *)osal_mem_alloc(len)))
+// 1869   {
+// 1870     uint8 id = MT_ZDO_CID_TO_AREQ_ID(pData->clusterId);
+// 1871 
+// 1872     pBuf[0] = LO_UINT16(pData->srcAddr.addr.shortAddr);
+// 1873     pBuf[1] = HI_UINT16(pData->srcAddr.addr.shortAddr);
+// 1874 
+// 1875     /* copy ZDO data, skipping one-byte sequence number */
+// 1876     osal_memcpy(pBuf+2, (pData->cmd.Data + 1), pData->cmd.DataLength-1);
+// 1877 
+// 1878     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO), id, len, pBuf);
+// 1879     osal_mem_free(pBuf);
+// 1880   }
+// 1881 }
+// 1882 
+// 1883 /***************************************************************************************************
+// 1884  * @fn     MT_ZdoHandleExceptions()
+// 1885  *
+// 1886  * @brief  Handles all messages that are an exception to the generic MT ZDO Response.
+// 1887  *
+// 1888  * @param  pData - Incoming AF frame.
+// 1889  *
+// 1890  * @return  TRUE if handled by this function, FALSE if not
+// 1891  ***************************************************************************************************/
+// 1892 uint8 MT_ZdoHandleExceptions( afIncomingMSGPacket_t *pData, zdoIncomingMsg_t *inMsg )
+// 1893 {
+// 1894   uint8 ret = TRUE;
+// 1895   ZDO_NwkIEEEAddrResp_t *nwkRsp;
+// 1896   ZDO_DeviceAnnce_t devAnnce;
+// 1897   uint8 doDefault = FALSE;
+// 1898 
+// 1899   switch ( inMsg->clusterID )
+// 1900   {
+// 1901     case NWK_addr_rsp:
+// 1902     case IEEE_addr_rsp:
+// 1903       if ( NULL != (nwkRsp = ZDO_ParseAddrRsp(inMsg)) )
+// 1904       {
+// 1905         if ( nwkRsp->status == ZDO_SUCCESS )
+// 1906         {
+// 1907           MT_ZdoAddrRspCB( nwkRsp, inMsg->clusterID );
+// 1908         }
+// 1909         osal_mem_free( nwkRsp );
+// 1910       }
+// 1911       break;
+// 1912 
+// 1913     case Device_annce:
+// 1914       ZDO_ParseDeviceAnnce( inMsg, &devAnnce );
+// 1915       MT_ZdoEndDevAnnceCB( &devAnnce, inMsg->srcAddr.addr.shortAddr );
+// 1916       break;
+// 1917 
+// 1918     case Simple_Desc_rsp:
+// 1919       if ( pData->cmd.DataLength > 5 )
+// 1920       {
+// 1921         ret = FALSE;
+// 1922       }
+// 1923       else
+// 1924       {
+// 1925         doDefault = TRUE;
+// 1926       }
+// 1927       break;
+// 1928 
+// 1929     default:
+// 1930       ret = FALSE;
+// 1931       break;
+// 1932   }
+// 1933 
+// 1934   if ( doDefault )
+// 1935   {
+// 1936     ret = FALSE;
+// 1937     pData->clusterId = MtZdoDef_rsp;
+// 1938     pData->cmd.DataLength = 2;
+// 1939   }
+// 1940 
+// 1941   return ( ret );
+// 1942 }
+// 1943 
+// 1944 /***************************************************************************************************
+// 1945  * @fn      MT_ZdoAddrRspCB
+// 1946  *
+// 1947  * @brief   Handle IEEE or nwk address response OSAL message from ZDO.
+// 1948  *
+// 1949  * @param   pMsg  - Message data
+// 1950  *
+// 1951  * @return  void
+// 1952  */
+// 1953 void MT_ZdoAddrRspCB( ZDO_NwkIEEEAddrResp_t *pMsg, uint16 clusterID )
+// 1954 {
+// 1955   uint8   listLen, len, *pBuf;
+// 1956 
+// 1957   /* both ZDO_NwkAddrResp_t and ZDO_IEEEAddrResp_t must be the same */
+// 1958 
+// 1959   /* get length, sanity check length */
+// 1960   listLen = pMsg->numAssocDevs;
+// 1961 
+// 1962   /* calculate msg length */
+// 1963   len = MT_ZDO_ADDR_RSP_LEN + (listLen * sizeof(uint16));
+// 1964 
+// 1965   /* get buffer */
+// 1966   if (NULL != (pBuf = (uint8 *)osal_mem_alloc(len)))
+// 1967   {
+// 1968     uint8 id = MT_ZDO_CID_TO_AREQ_ID(clusterID);
+// 1969     uint8 *pTmp = pBuf;
+// 1970 
+// 1971     *pTmp++ = pMsg->status;
+// 1972 
+// 1973     osal_cpyExtAddr(pTmp, pMsg->extAddr);
+// 1974     pTmp += Z_EXTADDR_LEN;
+// 1975 
+// 1976     *pTmp++ = LO_UINT16(pMsg->nwkAddr);
+// 1977     *pTmp++ = HI_UINT16(pMsg->nwkAddr);
+// 1978 
+// 1979     *pTmp++ = pMsg->startIndex;
+// 1980     *pTmp++ = listLen;
+// 1981 
+// 1982     MT_Word2Buf(pTmp, pMsg->devList, listLen);
+// 1983 
+// 1984     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO), id, len, pBuf);
+// 1985     osal_mem_free(pBuf);
+// 1986   }
+// 1987 }
+// 1988 
+// 1989 /***************************************************************************************************
+// 1990  * @fn      MT_ZdoEndDevAnnceCB
+// 1991  *
+// 1992  * @brief   Handle end device announce OSAL message from ZDO.
+// 1993  *
+// 1994  * @param   pMsg  - Message data
+// 1995  *
+// 1996  * @return  void
+// 1997  */
+// 1998 void MT_ZdoEndDevAnnceCB( ZDO_DeviceAnnce_t *pMsg, uint16 srcAddr )
+// 1999 {
+// 2000   uint8 *pBuf;
+// 2001 
+// 2002   if (NULL != (pBuf = (uint8 *)osal_mem_alloc(MT_ZDO_END_DEVICE_ANNCE_IND_LEN)))
+// 2003   {
+// 2004     uint8 *pTmp = pBuf;
+// 2005 
+// 2006     *pTmp++ = LO_UINT16(srcAddr);
+// 2007     *pTmp++ = HI_UINT16(srcAddr);
+// 2008 
+// 2009     *pTmp++ = LO_UINT16(pMsg->nwkAddr);
+// 2010     *pTmp++ = HI_UINT16(pMsg->nwkAddr);
+// 2011 
+// 2012     osal_cpyExtAddr(pTmp, pMsg->extAddr);
+// 2013     pTmp += Z_EXTADDR_LEN;
+// 2014 
+// 2015     *pTmp = pMsg->capabilities;
+// 2016 
+// 2017     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 2018                                          MT_ZDO_END_DEVICE_ANNCE_IND,
+// 2019                                          MT_ZDO_END_DEVICE_ANNCE_IND_LEN, pBuf);
+// 2020     osal_mem_free(pBuf);
+// 2021   }
+// 2022 }
+// 2023 
+// 2024 /***************************************************************************************************
+// 2025  * @fn      MT_ZdoSrcRtgCB
+// 2026  *
+// 2027  * @brief   Handle Src Route from ZDO.
+// 2028  *
+// 2029  * @param   pStr  - pointer to the data structure for the src route
+// 2030  *
+// 2031  * @return  void*
+// 2032  */
+// 2033 void* MT_ZdoSrcRtgCB( void *pStr )
+// 2034 {
+// 2035   uint8 len, *pBuf;
+// 2036   zdoSrcRtg_t *pSrcRtg = pStr;
+// 2037 
+// 2038   // srcAddr (2) + relayCnt (1) + relayList( relaycnt * 2 )
+// 2039   len = 2 + 1 + pSrcRtg->relayCnt * sizeof(uint16);
+// 2040 
+// 2041   if (NULL != (pBuf = (uint8 *)osal_mem_alloc(len)))
+// 2042   {
+// 2043     uint8 idx, *pTmp = pBuf;
+// 2044     uint16 *pRelay;
+// 2045 
+// 2046     // Packet payload
+// 2047     *pTmp++ = LO_UINT16(pSrcRtg->srcAddr);
+// 2048     *pTmp++ = HI_UINT16(pSrcRtg->srcAddr);
+// 2049     *pTmp++ = pSrcRtg->relayCnt;
+// 2050 
+// 2051     // Relay List
+// 2052     if( ( pRelay = pSrcRtg->pRelayList ) != NULL )
+// 2053     {
+// 2054       for( idx = 0; idx < pSrcRtg->relayCnt; idx ++ )
+// 2055       {
+// 2056         *pTmp++ = LO_UINT16(*pRelay);
+// 2057         *pTmp++ = HI_UINT16(*pRelay);
+// 2058         pRelay++;
+// 2059       }
+// 2060     }
+// 2061     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 2062                                          MT_ZDO_SRC_RTG_IND, len, pBuf);
+// 2063     osal_mem_free(pBuf);
+// 2064   }
+// 2065 
+// 2066   return NULL;
+// 2067 }
+// 2068 
+// 2069 /***************************************************************************************************
+// 2070  * @fn          MT_ZdoConcentratorIndCB
+// 2071  *
+// 2072  * @brief       Handle the ZDO Concentrator Indication callback from the ZDO.
+// 2073  *
+// 2074  * @param       pStr - pointer to a parameter and a structure of parameters
+// 2075  *
+// 2076  * @return      NULL
+// 2077  ***************************************************************************************************/
+// 2078 static void *MT_ZdoConcentratorIndCB(void *pStr)
+// 2079 {
+// 2080   uint8 buf[MT_ZDO_CONCENTRATOR_IND_LEN], *pTmp = buf;
+// 2081   zdoConcentratorInd_t *pInd = (zdoConcentratorInd_t *)pStr;
+// 2082 
+// 2083   *pTmp++ = LO_UINT16(pInd->nwkAddr);
+// 2084   *pTmp++ = HI_UINT16(pInd->nwkAddr);
+// 2085   pTmp = osal_memcpy(pTmp, pInd->extAddr, Z_EXTADDR_LEN);
+// 2086   *pTmp = pInd->pktCost;
+// 2087 
+// 2088   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 2089                                     MT_ZDO_CONCENTRATOR_IND_CB, MT_ZDO_CONCENTRATOR_IND_LEN, buf);
+// 2090   return NULL;
+// 2091 }
+// 2092 
+// 2093 /***************************************************************************************************
+// 2094  * @fn          MT_ZdoLeaveInd
+// 2095  *
+// 2096  * @brief       Handle the ZDO Leave Indication callback from the ZDO.
+// 2097  *
+// 2098  * @param       vPtr - Pointer to the received Leave Indication message.
+// 2099  *
+// 2100  * @return      NULL
+// 2101  ***************************************************************************************************/
+// 2102 static void *MT_ZdoLeaveInd(void *vPtr)
+// 2103 {
+// 2104   NLME_LeaveInd_t *pInd = (NLME_LeaveInd_t *)vPtr;
+// 2105   uint8 buf[sizeof(NLME_LeaveInd_t)];
+// 2106 
+// 2107   buf[0] = LO_UINT16(pInd->srcAddr);
+// 2108   buf[1] = HI_UINT16(pInd->srcAddr);
+// 2109   (void)osal_memcpy(buf+2, pInd->extAddr, Z_EXTADDR_LEN);
+// 2110   buf[2+Z_EXTADDR_LEN] = pInd->request;
+// 2111   buf[3+Z_EXTADDR_LEN] = pInd->removeChildren;
+// 2112   buf[4+Z_EXTADDR_LEN] = pInd->rejoin;
+// 2113 
+// 2114   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 2115                                        MT_ZDO_LEAVE_IND, 5+Z_EXTADDR_LEN, buf);
+// 2116   return NULL;
+// 2117 }
+// 2118 #endif // MT_ZDO_CB_FUNC
+// 2119 
+// 2120 /***************************************************************************************************
+// 2121  * @fn      MT_ZdoSendMsgCB
+// 2122  *
+// 2123  * @brief   Proxy the ZDO_SendMsgCBs one message at a time.
+// 2124  *
+// 2125  * @param   pMsg  - Message data
+// 2126  *
+// 2127  * @return  void
+// 2128  */
+// 2129 void MT_ZdoSendMsgCB(zdoIncomingMsg_t *pMsg)
+// 2130 {
+// 2131   uint8 len = pMsg->asduLen + 9;
+// 2132   uint8 *pBuf = (uint8 *)osal_mem_alloc(len);
+// 2133 
+// 2134   if (pBuf != NULL)
+// 2135   {
+// 2136     uint8 *pTmp = pBuf;
+// 2137 
+// 2138     // Assuming exclusive use of network short addresses.
+// 2139     *pTmp++ = LO_UINT16(pMsg->srcAddr.addr.shortAddr);
+// 2140     *pTmp++ = HI_UINT16(pMsg->srcAddr.addr.shortAddr);
+// 2141     *pTmp++ = pMsg->wasBroadcast;
+// 2142     *pTmp++ = LO_UINT16(pMsg->clusterID);
+// 2143     *pTmp++ = HI_UINT16(pMsg->clusterID);
+// 2144     *pTmp++ = pMsg->SecurityUse;
+// 2145     *pTmp++ = pMsg->TransSeq;
+// 2146     // Skipping asduLen since it can be deduced from the RPC packet length.
+// 2147     *pTmp++ = LO_UINT16(pMsg->macDestAddr);
+// 2148     *pTmp++ = HI_UINT16(pMsg->macDestAddr);
+// 2149     (void)osal_memcpy(pTmp, pMsg->asdu, pMsg->asduLen);
+// 2150 
+// 2151     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZDO),
+// 2152                                          MT_ZDO_MSG_CB_INCOMING, len, pBuf);
+// 2153 
+// 2154     osal_mem_free(pBuf);
+// 2155   }
+// 2156 }
+// 2157 
+// 2158 #endif   /*ZDO Command Processing in MT*/
+// 2159 /***************************************************************************************************
+// 2160 ***************************************************************************************************/
+// 
+// 
+// 0 bytes of memory
+//
+//Errors: none
+//Warnings: none

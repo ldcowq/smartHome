@@ -1,0 +1,697 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         28/Dec/2020  22:12:33 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Components\mt\MT_TASK.c                           #
+#    Command line       =  -f D:\developer_tool_install\IAR\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\SmartHome\CC2530DB\..\ #
+#                          ..\..\Tools\CC2530DB\f8wEndev.cfg (-DCPU32MHZ      #
+#                          -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3         #
+#                          -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f          #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO       #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00010000                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFAA                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 D:\developer_tool_install\I #
+#                          AR\ZStack-CC2530-2.5.1a\Components\mt\MT_TASK.c    #
+#                          -D xNWK_AUTO_POLL -D ZTOOL_P1 -D                   #
+#                          xRFD_RCVC_ALWAYS_ON=TRUE -D xMT_TASK -D            #
+#                          xMT_SYS_FUNC -D xMT_ZDO_FUNC -D                    #
+#                          xLCD_SUPPORTED=DEBUG -D xPOWER_SAVING -lC          #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\LedDev #
+#                          ice\List\ -lA D:\developer_tool_install\IAR\ZStack #
+#                          -CC2530-2.5.1a\Projects\zstack\Samples\SmartHome\C #
+#                          C2530DB\LedDevice\List\ --diag_suppress            #
+#                          Pe001,Pa010 -o D:\developer_tool_install\IAR\ZStac #
+#                          k-CC2530-2.5.1a\Projects\zstack\Samples\SmartHome\ #
+#                          CC2530DB\LedDevice\Obj\ -e --no_code_motion        #
+#                          --debug --core=plain --dptr=16,1                   #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I D:\developer_tool_install\IAR\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\SmartHome\CC2530DB\    #
+#                          -I D:\developer_tool_install\IAR\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\SmartHome\CC2530DB\..\ #
+#                          Source\ -I D:\developer_tool_install\IAR\ZStack-CC #
+#                          2530-2.5.1a\Projects\zstack\Samples\SmartHome\CC25 #
+#                          30DB\..\..\..\ZMain\TI2530DB\ -I                   #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\hal\include\ -I                #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\hal\target\CC2530EB\ -I        #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\include\ -I                #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\high_level\ -I             #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\low_level\srf04\ -I        #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\low_level\srf04\single_chi #
+#                          p\ -I D:\developer_tool_install\IAR\ZStack-CC2530- #
+#                          2.5.1a\Projects\zstack\Samples\SmartHome\CC2530DB\ #
+#                          ..\..\..\..\..\Components\mt\ -I                   #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\osal\include\ -I               #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\services\saddr\ -I             #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\services\sdata\ -I             #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\af\ -I                   #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\nwk\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\sapi\ -I                 #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\sec\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\sys\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\zdo\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\zmac\ -I                       #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\zmac\f8w\ -Ohz                 #
+#                          --require_prototypes                               #
+#    List file          =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\LedDev #
+#                          ice\List\MT_TASK.lst                               #
+#    Object file        =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\LedDev #
+#                          ice\Obj\MT_TASK.r51                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a\Components\mt\MT_TASK.c
+      1          /***************************************************************************************************
+      2            Filename:       MT_TASK.c
+      3            Revised:        $Date: 2011-06-07 15:36:01 -0700 (Tue, 07 Jun 2011) $
+      4            Revision:       $Revision: 26245 $
+      5          
+      6            Description:    MonitorTest Task handling routines
+      7          
+      8            Copyright 2007-2011 Texas Instruments Incorporated. All rights reserved.
+      9          
+     10            IMPORTANT: Your use of this Software is limited to those specific rights
+     11            granted under the terms of a software license agreement between the user
+     12            who downloaded the software, his/her employer (which must be your employer)
+     13            and Texas Instruments Incorporated (the "License").  You may not use this
+     14            Software unless you agree to abide by the terms of the License. The License
+     15            limits your use, and you acknowledge, that the Software may not be modified,
+     16            copied or distributed unless embedded on a Texas Instruments microcontroller
+     17            or used solely and exclusively in conjunction with a Texas Instruments radio
+     18            frequency transceiver, which is integrated into your product.  Other than for
+     19            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     20            works of, modify, distribute, perform, display or sell this Software and/or
+     21            its documentation for any purpose.
+     22          
+     23            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     24            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     26            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     27            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     28            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     29            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     30            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     31            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     32            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     33            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     34          
+     35            Should you have any questions regarding your right to use this Software,
+     36            contact Texas Instruments Incorporated at www.TI.com.
+     37          
+     38           ***************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           * INCLUDES
+     42           ***************************************************************************************************/
+     43          #include "ZComDef.h"
+     44          #include "MT_TASK.h"
+     45          #include "MT.h"
+     46          #include "MT_DEBUG.h"
+     47          #include "MT_UART.h"
+     48          #include "MT_UTIL.h"
+     49          #include "MT_SYS.h"
+     50          
+     51          #if !defined( NONWK )
+     52          #include "MT_ZDO.h"
+     53          #include "MT_AF.h"
+     54          #endif  /* NONWK */
+     55          
+     56          #include "hal_uart.h"
+     57          #include "OSAL_Memory.h"
+     58          
+     59          /***************************************************************************************************
+     60           * LOCAL FUNCTIONS
+     61           ***************************************************************************************************/
+     62          
+     63          static void MT_ProcessIncomingCommand( mtOSALSerialData_t *msg );
+     64          
+     65          /***************************************************************************************************
+     66           * GLOBALS
+     67           ***************************************************************************************************/
+     68          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     69          uint8 MT_TaskID;
+   \                     MT_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     70          
+     71          /***************************************************************************************************
+     72           * @fn      MT_TaskInit
+     73           *
+     74           * @brief  MonitorTest Task Initialization.  This function is put into the
+     75           *         task table.
+     76           *
+     77           * @param   task_id - task ID of the MT Task
+     78           *
+     79           * @return  void
+     80           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     81          void MT_TaskInit(uint8 task_id)
+   \                     MT_TaskInit:
+     82          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+     83            MT_TaskID = task_id;
+   \   000007   90....       MOV     DPTR,#MT_TaskID
+   \   00000A   F0           MOVX    @DPTR,A
+     84          
+     85            /* Initialize the Serial port */
+     86            MT_UartInit();
+   \   00000B                ; Setup parameters for call to function MT_UartInit
+   \   00000B   12....       LCALL   ??MT_UartInit?relay
+     87          
+     88            /* Register taskID - Do this after UartInit() because it will reset the taskID */
+     89            MT_UartRegisterTaskID(task_id);
+   \   00000E                ; Setup parameters for call to function MT_UartRegisterTaskID
+   \   00000E   EE           MOV     A,R6
+   \   00000F   F9           MOV     R1,A
+   \   000010   12....       LCALL   ??MT_UartRegisterTaskID?relay
+     90          
+     91            osal_set_event(task_id, MT_SECONDARY_INIT_EVENT);
+   \   000013                ; Setup parameters for call to function osal_set_event
+   \   000013   7A10         MOV     R2,#0x10
+   \   000015   7B00         MOV     R3,#0x0
+   \   000017   EE           MOV     A,R6
+   \   000018   F9           MOV     R1,A
+   \   000019   12....       LCALL   ??osal_set_event?relay
+     92          }
+   \   00001C   7F01         MOV     R7,#0x1
+   \   00001E   02....       LJMP    ?BANKED_LEAVE_XDATA
+     93          
+     94          /**************************************************************************************************
+     95           * @fn      MT_ProcessEvent
+     96           *
+     97           * @brief   MonitorTest Task Event Processor.  This task is put into the task table.
+     98           *
+     99           * @param   task_id - task ID of the MT Task
+    100           * @param   events - event(s) for the MT Task
+    101           *
+    102           * @return  Bit mask of the unprocessed MT Task events.
+    103           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    104          UINT16 MT_ProcessEvent(uint8 task_id, uint16 events)
+   \                     MT_ProcessEvent:
+    105          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    106            /* Could be multiple events, so switch won't work */
+    107            if ( events & SYS_EVENT_MSG )
+   \   000009   5480         ANL     A,#0x80
+   \   00000B   7003         JNZ     $+5
+   \   00000D   02....       LJMP    ??MT_ProcessEvent_0 & 0xFFFF
+    108            {
+    109              uint8 *msg_ptr = osal_msg_receive(task_id);
+   \   000010                ; Setup parameters for call to function osal_msg_receive
+   \   000010   12....       LCALL   ??osal_msg_receive?relay
+   \   000013   8A..         MOV     ?V0 + 2,R2
+   \   000015   8B..         MOV     ?V0 + 3,R3
+    110          
+    111              if (msg_ptr != NULL)
+   \   000017   EA           MOV     A,R2
+   \   000018   45..         ORL     A,?V0 + 3
+   \   00001A   7003         JNZ     $+5
+   \   00001C   02....       LJMP    ??MT_ProcessEvent_1 & 0xFFFF
+    112              {
+    113                MT_ProcessIncomingCommand((mtOSALSerialData_t *)msg_ptr);
+   \   00001F   8A82         MOV     DPL,R2
+   \   000021   8B83         MOV     DPH,R3
+   \   000023   A3           INC     DPTR
+   \   000024   A3           INC     DPTR
+   \   000025   E0           MOVX    A,@DPTR
+   \   000026   F5..         MOV     ?V0 + 0,A
+   \   000028   A3           INC     DPTR
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   F5..         MOV     ?V0 + 1,A
+   \   00002C   8A82         MOV     DPL,R2
+   \   00002E   8B83         MOV     DPH,R3
+   \   000030   E0           MOVX    A,@DPTR
+   \   000031   14           DEC     A
+   \   000032   607C         JZ      ??MT_ProcessEvent_2
+   \   000034   14           DEC     A
+   \   000035   6074         JZ      ??MT_ProcessEvent_3
+   \   000037   24FE         ADD     A,#-0x2
+   \   000039   6023         JZ      ??MT_ProcessEvent_4
+   \   00003B   24FE         ADD     A,#-0x2
+   \   00003D   601A         JZ      ??MT_ProcessEvent_5
+   \   00003F   24E2         ADD     A,#-0x1e
+   \   000041   7074         JNZ     ??MT_ProcessEvent_6
+   \   000043                ; Setup parameters for call to function MTProcessAppRspMsg
+   \   000043   85..82       MOV     DPL,?V0 + 0
+   \   000046   85..83       MOV     DPH,?V0 + 1
+   \   000049   A3           INC     DPTR
+   \   00004A   A3           INC     DPTR
+   \   00004B   A3           INC     DPTR
+   \   00004C   E0           MOVX    A,@DPTR
+   \   00004D   2405         ADD     A,#0x5
+   \   00004F   F9           MOV     R1,A
+   \   000050   AA..         MOV     R2,?V0 + 0
+   \   000052   AB..         MOV     R3,?V0 + 1
+   \   000054   12....       LCALL   ??MTProcessAppRspMsg?relay
+   \   000057   805E         SJMP    ??MT_ProcessEvent_6
+   \                     ??MT_ProcessEvent_5:
+   \   000059                ; Setup parameters for call to function MT_ProcessDebugStr
+   \   000059   12....       LCALL   ??MT_ProcessDebugStr?relay
+   \   00005C   8059         SJMP    ??MT_ProcessEvent_6
+   \                     ??MT_ProcessEvent_4:
+   \   00005E   85..82       MOV     DPL,?V0 + 0
+   \   000061   85..83       MOV     DPH,?V0 + 1
+   \   000064   A3           INC     DPTR
+   \   000065   A3           INC     DPTR
+   \   000066   A3           INC     DPTR
+   \   000067   E0           MOVX    A,@DPTR
+   \   000068   2405         ADD     A,#0x5
+   \   00006A   F5..         MOV     ?V0 + 5,A
+   \   00006C                ; Setup parameters for call to function MT_UartCalcFCS
+   \   00006C   74FE         MOV     A,#-0x2
+   \   00006E   25..         ADD     A,?V0 + 5
+   \   000070   F9           MOV     R1,A
+   \   000071   85..82       MOV     DPL,?V0 + 0
+   \   000074   85..83       MOV     DPH,?V0 + 1
+   \   000077   A3           INC     DPTR
+   \   000078   AA82         MOV     R2,DPL
+   \   00007A   AB83         MOV     R3,DPH
+   \   00007C   12....       LCALL   ??MT_UartCalcFCS?relay
+   \   00007F   E9           MOV     A,R1
+   \   000080   C0E0         PUSH    A
+   \   000082   85....       MOV     ?V0 + 6,?V0 + 5
+   \   000085   E5..         MOV     A,?V0 + 0
+   \   000087   25..         ADD     A,?V0 + 6
+   \   000089   F8           MOV     R0,A
+   \   00008A   E5..         MOV     A,?V0 + 1
+   \   00008C   3400         ADDC    A,#0x0
+   \   00008E   F9           MOV     R1,A
+   \   00008F   E8           MOV     A,R0
+   \   000090   24FF         ADD     A,#-0x1
+   \   000092   F582         MOV     DPL,A
+   \   000094   E9           MOV     A,R1
+   \   000095   34FF         ADDC    A,#-0x1
+   \   000097   F583         MOV     DPH,A
+   \   000099   D0E0         POP     A
+   \   00009B   F0           MOVX    @DPTR,A
+   \   00009C                ; Setup parameters for call to function HalUARTWrite
+   \   00009C   AC..         MOV     R4,?V0 + 6
+   \   00009E   7D00         MOV     R5,#0x0
+   \   0000A0   AA..         MOV     R2,?V0 + 0
+   \   0000A2   AB..         MOV     R3,?V0 + 1
+   \   0000A4   7900         MOV     R1,#0x0
+   \   0000A6   12....       LCALL   ??HalUARTWrite?relay
+   \   0000A9   800C         SJMP    ??MT_ProcessEvent_6
+   \                     ??MT_ProcessEvent_3:
+   \   0000AB                ; Setup parameters for call to function MT_ProcessDebugMsg
+   \   0000AB   12....       LCALL   ??MT_ProcessDebugMsg?relay
+   \   0000AE   8007         SJMP    ??MT_ProcessEvent_6
+   \                     ??MT_ProcessEvent_2:
+   \   0000B0                ; Setup parameters for call to function MT_ProcessIncoming
+   \   0000B0   AA..         MOV     R2,?V0 + 0
+   \   0000B2   AB..         MOV     R3,?V0 + 1
+   \   0000B4   12....       LCALL   ??MT_ProcessIncoming?relay
+    114          
+    115                osal_msg_deallocate(msg_ptr);
+   \                     ??MT_ProcessEvent_6:
+   \   0000B7                ; Setup parameters for call to function osal_msg_deallocate
+   \   0000B7   AA..         MOV     R2,?V0 + 2
+   \   0000B9   AB..         MOV     R3,?V0 + 3
+   \   0000BB   12....       LCALL   ??osal_msg_deallocate?relay
+    116              }
+    117          
+    118              /* Return unproccessed events */
+    119              return (events ^ SYS_EVENT_MSG);
+   \                     ??MT_ProcessEvent_1:
+   \   0000BE   EE           MOV     A,R6
+   \   0000BF   FA           MOV     R2,A
+   \   0000C0   EF           MOV     A,R7
+   \   0000C1   6480         XRL     A,#0x80
+   \                     ??MT_ProcessEvent_7:
+   \   0000C3   FB           MOV     R3,A
+   \   0000C4   802B         SJMP    ??MT_ProcessEvent_8
+    120            }
+    121          
+    122            if ( events & MT_SECONDARY_INIT_EVENT )
+   \                     ??MT_ProcessEvent_0:
+   \   0000C6   EE           MOV     A,R6
+   \   0000C7   5410         ANL     A,#0x10
+   \   0000C9   600A         JZ      ??MT_ProcessEvent_9
+    123            {
+    124              MT_Init();
+   \   0000CB                ; Setup parameters for call to function MT_Init
+   \   0000CB   12....       LCALL   ??MT_Init?relay
+    125              /* Return unproccessed events */
+    126              return (events ^ MT_SECONDARY_INIT_EVENT);
+   \   0000CE   EE           MOV     A,R6
+   \   0000CF   6410         XRL     A,#0x10
+   \                     ??MT_ProcessEvent_10:
+   \   0000D1   FA           MOV     R2,A
+   \   0000D2   EF           MOV     A,R7
+   \   0000D3   80EE         SJMP    ??MT_ProcessEvent_7
+    127            }
+    128          
+    129            if ( events & MT_ZTOOL_SERIAL_RCV_BUFFER_FULL )
+   \                     ??MT_ProcessEvent_9:
+   \   0000D5   EE           MOV     A,R6
+   \   0000D6   5402         ANL     A,#0x2
+   \   0000D8   6006         JZ      ??MT_ProcessEvent_11
+    130            {
+    131              /* Return unproccessed events */
+    132              return (events ^ MT_ZTOOL_SERIAL_RCV_BUFFER_FULL);
+   \   0000DA   EE           MOV     A,R6
+   \   0000DB   6402         XRL     A,#0x2
+   \   0000DD   FA           MOV     R2,A
+   \   0000DE   8011         SJMP    ??MT_ProcessEvent_8
+    133            }
+    134          
+    135          #if !defined( NONWK )
+    136            if ( events & MT_AF_EXEC_EVT )
+   \                     ??MT_ProcessEvent_11:
+   \   0000E0   EE           MOV     A,R6
+   \   0000E1   5408         ANL     A,#0x8
+   \   0000E3   6008         JZ      ??MT_ProcessEvent_12
+    137            {
+    138              MT_AfExec();
+   \   0000E5                ; Setup parameters for call to function MT_AfExec
+   \   0000E5   12....       LCALL   ??MT_AfExec?relay
+    139              return (events ^ MT_AF_EXEC_EVT);
+   \   0000E8   EE           MOV     A,R6
+   \   0000E9   6408         XRL     A,#0x8
+   \   0000EB   80E4         SJMP    ??MT_ProcessEvent_10
+    140            }
+    141          #endif  /* NONWK */
+    142          
+    143            /* Handle MT_SYS_OSAL_START_TIMER callbacks */
+    144          #if defined MT_SYS_FUNC
+    145            if ( events & (MT_SYS_OSAL_EVENT_MASK))
+    146            {
+    147              if (events & MT_SYS_OSAL_EVENT_0)
+    148              {
+    149                MT_SysOsalTimerExpired(0x00);
+    150                events ^= MT_SYS_OSAL_EVENT_0;
+    151              }
+    152          
+    153              if (events & MT_SYS_OSAL_EVENT_1)
+    154              {
+    155                MT_SysOsalTimerExpired(0x01);
+    156                events ^= MT_SYS_OSAL_EVENT_1;
+    157              }
+    158          
+    159              if (events & MT_SYS_OSAL_EVENT_2)
+    160              {
+    161                MT_SysOsalTimerExpired(0x02);
+    162                events ^= MT_SYS_OSAL_EVENT_2;
+    163              }
+    164          
+    165              if (events & MT_SYS_OSAL_EVENT_3)
+    166              {
+    167                MT_SysOsalTimerExpired(0x03);
+    168                events ^= MT_SYS_OSAL_EVENT_3;
+    169              }
+    170          
+    171              return events;
+    172            }
+    173          #endif
+    174          
+    175            /* Discard or make more handlers */
+    176            return 0;
+   \                     ??MT_ProcessEvent_12:
+   \   0000ED   7A00         MOV     R2,#0x0
+   \   0000EF   7B00         MOV     R3,#0x0
+   \                     ??MT_ProcessEvent_8:
+   \   0000F1   7F08         MOV     R7,#0x8
+   \   0000F3   02....       LJMP    ?BANKED_LEAVE_XDATA
+    177          
+    178          } /* MT_ProcessEvent() */
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_TaskInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_TaskInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_ProcessEvent
+    179          
+    180          /***************************************************************************************************
+    181           * @fn      MT_ProcessIncomingCommand
+    182           *
+    183           * @brief
+    184           *
+    185           *   Process Event Messages.
+    186           *
+    187           * @param   *msg - pointer to event message
+    188           *
+    189           * @return
+    190           ***************************************************************************************************/
+    191          static void MT_ProcessIncomingCommand( mtOSALSerialData_t *msg )
+    192          {
+    193            uint8 len, *msg_ptr = msg->msg;
+    194          
+    195            /* Use the first byte of the message as the command ID */
+    196            switch ( msg->hdr.event )
+    197            {
+    198              case CMD_SERIAL_MSG:
+    199                MT_ProcessIncoming(msg_ptr);
+    200                break;
+    201          
+    202              case CMD_DEBUG_MSG:
+    203                MT_ProcessDebugMsg( (mtDebugMsg_t *)msg );
+    204                break;
+    205          
+    206              case CB_FUNC:
+    207                /*
+    208                  Build SPI message here instead of redundantly calling MT_BuildSPIMsg
+    209                  because we have copied data already in the allocated message
+    210                */
+    211          
+    212                /* msg_ptr is the beginning of the intended SPI message */
+    213                len = SPI_0DATA_MSG_LEN + msg_ptr[DATALEN_FIELD];
+    214          
+    215                /*
+    216                  FCS goes to the last byte in the message and is calculated over all
+    217                  the bytes except FCS and SOP
+    218                */
+    219                msg_ptr[len-1] = MT_UartCalcFCS(msg_ptr + 1, (uint8)(len-2));
+    220          
+    221          #ifdef MT_UART_DEFAULT_PORT
+    222                HalUARTWrite ( MT_UART_DEFAULT_PORT, msg_ptr, len );
+    223          #endif
+    224                break;
+    225          
+    226              case CMD_DEBUG_STR:
+    227                MT_ProcessDebugStr( (mtDebugStr_t *)msg );
+    228                break;
+    229          
+    230          #if !defined ( NONWK )
+    231              case MT_SYS_APP_RSP_MSG:
+    232                len = SPI_0DATA_MSG_LEN + msg_ptr[DATALEN_FIELD];
+    233                MTProcessAppRspMsg( msg_ptr, len );
+    234                break;
+    235          #endif  // NONWK
+    236          
+    237          #if defined (MT_UTIL_FUNC)
+    238          #if defined ZCL_KEY_ESTABLISH
+    239              case ZCL_KEY_ESTABLISH_IND:
+    240                MT_UtilKeyEstablishInd((keyEstablishmentInd_t *)msg);
+    241                break;
+    242          #endif
+    243          #endif
+    244          #ifdef MT_ZDO_CB_FUNC
+    245              case ZDO_STATE_CHANGE:
+    246                MT_ZdoStateChangeCB((osal_event_hdr_t *)msg);
+    247                break;
+    248          #endif
+    249          
+    250              default:
+    251                break;
+    252            }
+    253          }
+    254          
+    255          #ifdef MT_TASK
+    256          /***************************************************************************************************
+    257           * @fn      MT_TransportAlloc
+    258           *
+    259           * @brief   Allocate memory for transport msg
+    260           *
+    261           * @param   uint8 cmd0 - The first byte of the MT command id containing the command type and subsystem.
+    262           *          uint8 len - length
+    263           *
+    264           * @return  pointer the allocated memory or NULL if fail to allocate the memory
+    265           ***************************************************************************************************/
+    266          uint8 *MT_TransportAlloc(uint8 cmd0, uint8 len)
+    267          {
+    268            uint8 *p;
+    269          
+    270            (void)cmd0;  // Intentionally unreferenced parameter
+    271          
+    272            /* Allocate a buffer of data length + SOP+CMD+FCS (5 bytes) */
+    273            p = osal_msg_allocate(len + SPI_0DATA_MSG_LEN);
+    274          
+    275            if (p)
+    276            {
+    277              p++; /* Save space for SOP_VALUE, msg structure */
+    278              return p;
+    279            }
+    280            else
+    281            {
+    282              return NULL;
+    283            }
+    284          }
+    285          
+    286          /***************************************************************************************************
+    287           * @fn      MT_TransportSend
+    288           *
+    289           * @brief   Fill in SOP and FCS then send out the msg
+    290           *
+    291           * @param   uint8 *pBuf - pointer to the message that contains CMD, length, data and FCS
+    292           *
+    293           * @return  None
+    294           ***************************************************************************************************/
+    295          void MT_TransportSend(uint8 *pBuf)
+    296          {
+    297            uint8 *msgPtr;
+    298            uint8 dataLen = pBuf[0]; /* Data length is on byte #1 from the pointer */
+    299          
+    300            /* Move back to the SOP */
+    301            msgPtr = pBuf-1;
+    302          
+    303            /* Insert SOP */
+    304            msgPtr[0] = MT_UART_SOF;
+    305          
+    306            /* Insert FCS */
+    307            msgPtr[SPI_0DATA_MSG_LEN - 1 + dataLen] = MT_UartCalcFCS (pBuf, (3 + dataLen));
+    308          
+    309            /* Send to UART */
+    310          #ifdef MT_UART_DEFAULT_PORT
+    311            HalUARTWrite(MT_UART_DEFAULT_PORT, msgPtr, dataLen + SPI_0DATA_MSG_LEN);
+    312          #endif
+    313          
+    314            /* Deallocate */
+    315            osal_msg_deallocate(msgPtr);
+    316          }
+    317          #endif /* MT_TASK */
+    318          /***************************************************************************************************
+    319           ***************************************************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function                   ISTACK PSTACK XSTACK
+     --------                   ------ ------ ------
+     MT_ProcessEvent                1      0     16
+       -> osal_msg_receive          0      0     32
+       -> MTProcessAppRspMsg        0      0     32
+       -> MT_ProcessDebugStr        0      0     32
+       -> MT_UartCalcFCS            0      0     32
+       -> HalUARTWrite              0      0     32
+       -> MT_ProcessDebugMsg        0      0     32
+       -> MT_ProcessIncoming        0      0     32
+       -> osal_msg_deallocate       0      0     32
+       -> MT_Init                   0      0     32
+       -> MT_AfExec                 0      0     32
+     MT_TaskInit                    0      0      9
+       -> MT_UartInit               0      0     18
+       -> MT_UartRegisterTaskID     0      0     18
+       -> osal_set_event            0      0     18
+
+
+   Segment part sizes:
+
+     Function/Label          Bytes
+     --------------          -----
+     MT_TaskID                  1
+     MT_TaskInit               33
+     MT_ProcessEvent          246
+     ??MT_TaskInit?relay        6
+     ??MT_ProcessEvent?relay    6
+
+ 
+ 279 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+   1 byte  in segment XDATA_Z
+ 
+ 291 bytes of CODE  memory
+   1 byte  of XDATA memory
+
+Errors: none
+Warnings: none

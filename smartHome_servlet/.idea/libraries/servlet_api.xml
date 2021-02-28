@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="servlet-api">
+    <CLASSES>
+      <root url="jar://D:/developer_tool_install/apache-tomcat-8.0.50/lib/servlet-api.jar!/" />
+      <root url="jar://D:/developer_tool_install/apache-tomcat-8.0.50/lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../课程/JavaWeb课程/资料/07-Servlet-2/笔记/书城项目第二阶段===下午/阿里数据库连接池/druid-1.1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../课程/JavaWeb课程/资料/07-Servlet-2/笔记/书城项目第二阶段===下午/mysql-connector-java-5.1.7-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../课程/JavaWeb课程/资料/05-XML &amp; Tomcat/笔记/JavaWeb需要用到的jar包/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-dbutils-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/json-lib-2.4-jdk15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../JavaWebTest/book/web/WEB-INF/lib/gson-2.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/ezmorph-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-collections-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

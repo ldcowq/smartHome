@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E65A8BD8">
+
+
+    <TextView
+        android:id="@+id/host_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="主机："
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+
+    <EditText
+        android:hint="必填"
+        android:textColorHint="#BFBBBB"
+        android:id="@+id/host_editText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/white_edittext"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="@+id/host_textView"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <EditText
+        android:hint="不填，默认1883端口"
+        android:textColorHint="#BFBBBB"
+        android:id="@+id/port_editText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/white_edittext"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/host_textView"
+        app:layout_constraintTop_toBottomOf="@+id/host_editText" />
+
+    <TextView
+        android:id="@+id/port_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="端口："
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/host_textView" />
+
+
+
+    <TextView
+        android:id="@+id/ClientId_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="客户端ID："
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/port_textView" />
+
+    <EditText
+        android:hint="不填，将随机生成"
+        android:textColorHint="#BFBBBB"
+        android:id="@+id/ClientId_editText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/white_edittext"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ClientId_textView"
+        app:layout_constraintTop_toBottomOf="@+id/port_editText" />
+
+    <TextView
+        android:id="@+id/username_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="用户名："
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/ClientId_textView" />
+
+    <EditText
+
+        android:id="@+id/username_editText"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/white_edittext"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/username_textView"
+        app:layout_constraintTop_toBottomOf="@+id/ClientId_editText" />
+
+    <TextView
+        android:id="@+id/password_textView"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="密   码："
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/username_textView" />
+
+    <EditText
+
+        android:id="@+id/password_editText"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/white_edittext"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/password_textView"
+        app:layout_constraintTop_toBottomOf="@+id/username_editText" />
+
+    <Switch
+        android:id="@+id/connect_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:checked="false"
+        android:showText="true"
+        android:text="连接 "
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/password_textView"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/connect_status_textView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="状态："
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/connect_switch" />
+
+    <TextView
+        android:id="@+id/connect_status_show_textView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:text="未连接！"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/connect_status_textView"
+        app:layout_constraintTop_toBottomOf="@+id/connect_switch" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="574dp" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="36dp" />
+
+    <TextView
+        android:id="@+id/title_MQTT"
+        android:layout_width="285dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="72dp"
+        android:text="MQTT助手"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.246" />
+
+    <Button
+        android:id="@+id/clear_connect_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/white_edittext"
+        android:drawableRight="@drawable/delete"
+        android:text="  一键清空"
+        android:textColor="#E65A8BD8"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/connect_switch"
+        app:layout_constraintTop_toBottomOf="@+id/password_textView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

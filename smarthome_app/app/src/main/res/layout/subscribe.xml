@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E65A8BD8">
+
+    <TextView
+        android:id="@+id/subscribe_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="订阅主题"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/topic_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="主题："
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+    <EditText
+        android:hint="必填"
+        android:textColorHint="#BFBBBB"
+        android:id="@+id/subscribe_topic_editText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/white_edittext"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/topic_textView"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+
+    <TextView
+        android:id="@+id/qos_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="QOS："
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+
+    <RadioGroup
+        android:id="@+id/subscribe_QosRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal"
+
+        app:layout_constraintStart_toEndOf="@+id/qos_textView"
+        app:layout_constraintTop_toTopOf="@+id/guideline10">
+
+        <RadioButton
+            android:id="@+id/qos_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:buttonTint="#ffffff"
+            android:checked="true"
+            android:text="0"
+            android:textColor="#ffffff"
+            android:textSize="26sp" />
+
+        <RadioButton
+            android:id="@+id/qos_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:buttonTint="#ffffff"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="26sp" />
+
+        <RadioButton
+            android:id="@+id/qos_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#ffffff"
+            android:text="2"
+            android:textColor="#ffffff"
+            android:textSize="26sp" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/clear_subscribe_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/white_edittext"
+        android:drawableRight="@drawable/delete"
+        android:text=" 清空接收区"
+        android:textColor="#E65A8BD8"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.682"
+        app:layout_constraintStart_toEndOf="@+id/subscribe_switch"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+    <Switch
+        android:id="@+id/subscribe_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:checked="false"
+        android:showText="true"
+        android:text="订阅 "
+        android:textColor="#ffffff"
+        android:textSize="26dp"
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/subscribe_status_show_textView"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="未连接！"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/subscribe_status_textView"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+    <TextView
+        android:id="@+id/subscribe_status_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="状态："
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_marginTop="28dp"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subscribe_status_show_textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/receiveMsg_text"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_edittext"
+                android:minLines="19"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="36dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="129dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="740dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

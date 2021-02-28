@@ -1,0 +1,799 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         28/Dec/2020  20:28:31 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\Source\MQ2Devic #
+#                          e.c                                                #
+#    Command line       =  -f D:\developer_tool_install\IAR\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\SmartHome\CC2530DB\..\ #
+#                          ..\..\Tools\CC2530DB\f8wCoord.cfg (-DCPU32MHZ      #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f D:\developer_tool_install\IAR\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\SmartHome\CC2530DB\..\ #
+#                          ..\..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO    #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00010000                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFAA                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 D:\developer_tool_install\I #
+#                          AR\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Sm #
+#                          artHome\Source\MQ2Device.c -D ZTOOL_P1 -D          #
+#                          xMT_TASK -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D        #
+#                          xLCD_SUPPORTED=DEBUG -lC                           #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\mq2\Li #
+#                          st\ -lA D:\developer_tool_install\IAR\ZStack-CC253 #
+#                          0-2.5.1a\Projects\zstack\Samples\SmartHome\CC2530D #
+#                          B\mq2\List\ --diag_suppress Pe001,Pa010 -o         #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\mq2\Ob #
+#                          j\ -e --no_code_motion --debug --core=plain        #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I D:\developer_tool_install\ #
+#                          IAR\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\S #
+#                          martHome\CC2530DB\ -I D:\developer_tool_install\IA #
+#                          R\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Sma #
+#                          rtHome\CC2530DB\..\Source\ -I                      #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\ZMain\TI2530DB\ -I D:\developer_tool_install\IA #
+#                          R\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\Sma #
+#                          rtHome\CC2530DB\..\..\..\..\..\Components\hal\incl #
+#                          ude\ -I D:\developer_tool_install\IAR\ZStack-CC253 #
+#                          0-2.5.1a\Projects\zstack\Samples\SmartHome\CC2530D #
+#                          B\..\..\..\..\..\Components\hal\target\CC2530EB\   #
+#                          -I D:\developer_tool_install\IAR\ZStack-CC2530-2.5 #
+#                          .1a\Projects\zstack\Samples\SmartHome\CC2530DB\..\ #
+#                          ..\..\..\..\Components\mac\include\ -I             #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\high_level\ -I             #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\low_level\srf04\ -I        #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\mac\low_level\srf04\single_chi #
+#                          p\ -I D:\developer_tool_install\IAR\ZStack-CC2530- #
+#                          2.5.1a\Projects\zstack\Samples\SmartHome\CC2530DB\ #
+#                          ..\..\..\..\..\Components\mt\ -I                   #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\osal\include\ -I               #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\services\saddr\ -I             #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\services\sdata\ -I             #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\af\ -I                   #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\nwk\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\sapi\ -I                 #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\sec\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\sys\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\stack\zdo\ -I                  #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\zmac\ -I                       #
+#                          D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ #
+#                          ..\..\..\Components\zmac\f8w\ -Ohz                 #
+#                          --require_prototypes                               #
+#    List file          =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\mq2\Li #
+#                          st\MQ2Device.lst                                   #
+#    Object file        =  D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a #
+#                          \Projects\zstack\Samples\SmartHome\CC2530DB\mq2\Ob #
+#                          j\MQ2Device.r51                                    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\developer_tool_install\IAR\ZStack-CC2530-2.5.1a\Projects\zstack\Samples\SmartHome\Source\MQ2Device.c
+      1          #include "smartHome.h"
+      2          #include "sapi.h"
+      3          #include "hal_led.h"
+
+   \                                 In  segment SFR_AN, at 0x88
+   \   union <unnamed> volatile __sfr _A_TCON
+   \                     _A_TCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb6
+   \   unsigned char volatile __sfr ADCCON3
+   \                     ADCCON3:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xba
+   \   unsigned char volatile __sfr ADCL
+   \                     ADCL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbb
+   \   unsigned char volatile __sfr ADCH
+   \                     ADCH:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf2
+   \   unsigned char volatile __sfr APCFG
+   \                     APCFG:
+   \   000000                DS 1
+      4          #include"onBoard.h"
+      5          #include "hal_uart.h"
+      6          #include "stdio.h"
+      7          #include <iocc2530.h>
+      8          
+      9          #define uchar unsigned char 
+     10          #define uint unsigned int
+     11          #define  DHT11_DATA  P0_4
+     12          #if 0
+     13            #define NUM_LED_1 1
+     14            #define NUM_LED_2 2
+     15          #elif 1
+     16            #define NUM_LED_1 3
+     17            #define NUM_LED_2 4
+     18          #else
+     19            #define NUM_LED_1 5
+     20            #define NUM_LED_2 6
+     21          #endif
+     22          
+     23          #define LEDNUM  2
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     24          uint8 ledIdList[LEDNUM]={NUM_LED_1,NUM_LED_2};
+   \                     ledIdList:
+   \   000000                DS 2
+   \   000002                REQUIRE `?<Initializer for ledIdList>`
+   \   000002                REQUIRE __INIT_XDATA_I
+     25          
+     26          #define NUM_IN_CMD_LEDDEVICE 1
+     27          #define NUM_OUT_CMD_LEDDEVICE 2
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     28          uint ADC_value=0;            //定义ADC转换值
+   \                     ADC_value:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     29          float ADC_result=0;          //定义ADC最终值
+   \                     ADC_result:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     30          char ADC_data[3]; //定义串口数组
+   \                     ADC_data:
+   \   000000                DS 3
+   \   000003                REQUIRE __INIT_XDATA_Z
+     31          
+     32          
+     33          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     34          const cId_t ledDeviceInputCommandList[NUM_IN_CMD_LEDDEVICE]=
+   \                     ledDeviceInputCommandList:
+   \   000000   0200         DW 2
+     35                                          {TOGGLE_LED_CMD_ID};
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     36          const cId_t ledDeviceOutputCommandList[NUM_OUT_CMD_LEDDEVICE]=
+   \                     ledDeviceOutputCommandList:
+   \   000000   0100         DW 1
+   \   000002   0300         DW 3
+     37                                          {LEDJOINNET_CMD_ID,HEART_BEAT_CMD_ID};
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     38          const SimpleDescriptionFormat_t zb_SimpleDesc=
+   \                     zb_SimpleDesc:
+   \   000000   01           DB 1
+   \   000001   0105         DW 1281
+   \   000003   0200         DW 2
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW ledDeviceInputCommandList
+   \   000009   02           DB 2
+   \   00000A   ....         DW ledDeviceOutputCommandList
+     39          {
+     40            ENDPOINT_ID_SMARTHOME,
+     41            PROFILE_ID_SMARTHOME,
+     42            DEVICE_ID_LEDDEVICE,
+     43            DEVIDE_VERSION_ID,
+     44            0,
+     45            NUM_IN_CMD_LEDDEVICE,
+     46            (cId_t*)ledDeviceInputCommandList,
+     47            NUM_OUT_CMD_LEDDEVICE,
+     48            (cId_t*)ledDeviceOutputCommandList  
+     49          };
+     50          unsigned int readAdc(unsigned char channal);
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     51          unsigned int readAdc(unsigned char channal)
+   \                     readAdc:
+     52          {
+   \   000000   C0..         PUSH    ?V0 + 0
+   \   000002   C0..         PUSH    ?V0 + 1
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     53            unsigned int value ; 
+     54            APCFG |= 1 << channal ; 
+   \   000004   75..01       MOV     ?V0 + 0,#0x1
+   \   000007   75..00       MOV     ?V0 + 1,#0x0
+   \   00000A   E9           MOV     A,R1
+   \   00000B   78..         MOV     R0,#?V0 + 0
+   \   00000D   12....       LCALL   ?S_SHL
+   \   000010   E5..         MOV     A,?V0 + 0
+   \   000012   42F2         ORL     0xf2,A
+     55            ADCIF = 0 ;
+   \   000014   C28D         CLR     0x88.5
+     56           
+     57            ADCCON3 = channal;          
+   \   000016   89B6         MOV     0xb6,R1
+     58            while ( !ADCIF ) ; 
+   \                     ??readAdc_0:
+   \   000018   A28D         MOV     C,0x88.5
+   \   00001A   50FC         JNC     ??readAdc_0
+     59            
+     60            value = ADCL;
+   \   00001C   E5BA         MOV     A,0xba
+   \   00001E   F5..         MOV     ?V0 + 0,A
+     61            value |= ((unsigned int) ADCH) << 8 ;
+     62            value>>=2;
+     63            
+     64            return value; 
+   \   000020   E5BB         MOV     A,0xbb
+   \   000022   F5..         MOV     ?V0 + 1,A
+   \   000024   7402         MOV     A,#0x2
+   \   000026   78..         MOV     R0,#?V0 + 0
+   \   000028   12....       LCALL   ?US_SHR
+   \   00002B   AA..         MOV     R2,?V0 + 0
+   \   00002D   AB..         MOV     R3,?V0 + 1
+   \   00002F   D0..         POP     ?V0 + 1
+   \   000031   D0..         POP     ?V0 + 0
+   \   000033   02....       LJMP    ?BRET
+   \   000036                REQUIRE APCFG
+   \   000036                REQUIRE _A_TCON
+   \   000036                REQUIRE ADCCON3
+   \   000036                REQUIRE ADCL
+   \   000036                REQUIRE ADCH
+     65          }
+     66          
+     67          /***********
+     68          执行时机：发送的数据包被接收方收到时被调用
+     69          handle:包的编号；
+     70          status:ZSUCCESS表示成功接收
+     71          ************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     72          void zb_SendDataConfirm( uint8 handle, uint8 status )
+   \                     zb_SendDataConfirm:
+     73          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     74            
+     75          }
+   \   000000   02....       LJMP    ?BRET
+     76          
+     77          /***********
+     78          执行时机：接收到的数据包被调用
+     79          ************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     80          void zb_ReceiveDataIndication( uint16 source, uint16 command, 
+   \                     zb_ReceiveDataIndication:
+     81                                        uint16 len, uint8 *pData  )
+     82          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     83            
+     84          }
+   \   000000   02....       LJMP    ?BRET
+     85          
+     86          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     87          void zb_AllowBindConfirm( uint16 source )
+   \                     zb_AllowBindConfirm:
+     88          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     89          }
+   \   000000   02....       LJMP    ?BRET
+     90          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     91          void zb_HandleKeys( uint8 shift, uint8 keys )
+   \                     zb_HandleKeys:
+     92          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     93            
+     94          }
+   \   000000   02....       LJMP    ?BRET
+     95          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     96          void zb_BindConfirm( uint16 commandId, uint8 status )
+   \                     zb_BindConfirm:
+     97          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     98          }
+   \   000000   02....       LJMP    ?BRET
+     99          
+    100          
+    101          //void zb_SendDataRequest ( uint16 destination, uint16 commandId, uint8 len,
+    102          //                          uint8 *pData, uint8 handle, uint8 ack, uint8 radius );
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    103          void zb_StartConfirm( uint8 status )
+   \                     zb_StartConfirm:
+    104          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 29
+   \   000005   74E3         MOV     A,#-0x1d
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+    105            if(status==ZSUCCESS)
+   \   00000B   7071         JNZ     ??CrossCallReturnLabel_4
+    106            {    
+    107              halUARTCfg_t uartcfg;
+    108              uartcfg.baudRate=HAL_UART_BR_115200;
+   \   00000D   7401         MOV     A,#0x1
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   7404         MOV     A,#0x4
+   \   000014   F0           MOVX    @DPTR,A
+    109              uartcfg.flowControl=FALSE;
+   \   000015   7402         MOV     A,#0x2
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   E4           CLR     A
+   \   00001B   F0           MOVX    @DPTR,A
+    110              uartcfg.callBackFunc=NULL;
+   \   00001C   741B         MOV     A,#0x1b
+   \   00001E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000021   E4           CLR     A
+   \   000022   F0           MOVX    @DPTR,A
+   \   000023   A3           INC     DPTR
+   \   000024   F0           MOVX    @DPTR,A
+    111              HalUARTOpen(0,&uartcfg);
+   \   000025                ; Setup parameters for call to function HalUARTOpen
+   \   000025   85..82       MOV     DPL,?XSP + 0
+   \   000028   85..83       MOV     DPH,?XSP + 1
+   \   00002B   AA82         MOV     R2,DPL
+   \   00002D   AB83         MOV     R3,DPH
+   \   00002F   F9           MOV     R1,A
+   \   000030   12....       LCALL   ??HalUARTOpen?relay
+    112              HalUARTWrite(0,"join success\r\n",osal_strlen("join success\r\n"));
+   \   000033                ; Setup parameters for call to function HalUARTWrite
+   \   000033                ; Setup parameters for call to function osal_strlen
+   \   000033   7A..         MOV     R2,#`?<Constant "join success\\r\\n">` & 0xff
+   \   000035   7B..         MOV     R3,#(`?<Constant "join success\\r\\n">` >> 8) & 0xff
+   \   000037   12....       LCALL   ??osal_strlen?relay
+   \   00003A   EA           MOV     A,R2
+   \   00003B   FC           MOV     R4,A
+   \   00003C   EB           MOV     A,R3
+   \   00003D   FD           MOV     R5,A
+   \   00003E   7A..         MOV     R2,#`?<Constant "join success\\r\\n">` & 0xff
+   \   000040   7B..         MOV     R3,#(`?<Constant "join success\\r\\n">` >> 8) & 0xff
+   \   000042   12....       LCALL   ?Subroutine2 & 0xFFFF
+    113              //可把节点所包含的led灯的ID号发送过去
+    114              zb_SendDataRequest(0X0,LEDJOINNET_CMD_ID,LEDNUM,ledIdList,0,FALSE,AF_DEFAULT_RADIUS);
+   \                     ??CrossCallReturnLabel_0:
+   \   000045   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000048   75..00       MOV     ?V0 + 0,#0x0
+   \   00004B   78..         MOV     R0,#?V0 + 0
+   \   00004D   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000050   78..         MOV     R0,#?V0 + 0
+   \   000052   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000055   75....       MOV     ?V0 + 0,#ledIdList & 0xff
+   \   000058   75....       MOV     ?V0 + 1,#(ledIdList >> 8) & 0xff
+   \   00005B   78..         MOV     R0,#?V0 + 0
+   \   00005D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000060   7902         MOV     R1,#0x2
+   \   000062   7C01         MOV     R4,#0x1
+   \   000064   7D00         MOV     R5,#0x0
+   \   000066   7A00         MOV     R2,#0x0
+   \   000068   7B00         MOV     R3,#0x0
+   \   00006A   12....       LCALL   ??zb_SendDataRequest?relay
+   \   00006D   7405         MOV     A,#0x5
+   \   00006F   12....       LCALL   ?DEALLOC_XSTACK8
+    115              osal_start_timerEx(sapi_TaskID,TIMER_TIMEOUT_EVT,2000);  
+   \   000072                ; Setup parameters for call to function osal_start_timerEx
+   \   000072   12....       LCALL   ?Subroutine1 & 0xFFFF
+    116              osal_start_timerEx(sapi_TaskID,READ_MQ2_EVENT,5000);
+   \                     ??CrossCallReturnLabel_2:
+   \   000075                ; Setup parameters for call to function osal_start_timerEx
+   \   000075   7C88         MOV     R4,#-0x78
+   \   000077   7D13         MOV     R5,#0x13
+   \   000079   7A03         MOV     R2,#0x3
+   \   00007B   12....       LCALL   ??Subroutine3_0 & 0xFFFF
+    117              
+    118            }
+    119          }
+   \                     ??CrossCallReturnLabel_4:
+   \   00007E   741D         MOV     A,#0x1d
+   \   000080                REQUIRE ?Subroutine0
+   \   000080                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003   7F02         MOV     R7,#0x2
+   \   000005   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7900         MOV     R1,#0x0
+   \   000002   12....       LCALL   ??HalUARTWrite?relay
+   \   000005                ; Setup parameters for call to function zb_SendDataRequest
+   \   000005                ; Setup parameters for call to function zb_SendDataRequest
+   \   000005   75..1E       MOV     ?V0 + 0,#0x1e
+   \   000008   78..         MOV     R0,#?V0 + 0
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7CD0         MOV     R4,#-0x30
+   \   000002   7D07         MOV     R5,#0x7
+   \   000004   7A01         MOV     R2,#0x1
+   \   000006                REQUIRE ??Subroutine3_0
+   \   000006                ; // Fall through to label ??Subroutine3_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine3_0:
+   \   000000   7B00         MOV     R3,#0x0
+   \   000002   90....       MOV     DPTR,#sapi_TaskID
+   \   000005   E0           MOVX    A,@DPTR
+   \   000006   F9           MOV     R1,A
+   \   000007   12....       LCALL   ??osal_start_timerEx?relay
+   \   00000A   22           RET
+    120          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    121          void zb_HandleOsalEvent( uint16 event )
+   \                     zb_HandleOsalEvent:
+    122          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV     A,#-0x4
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+    123            if(event&READ_MQ2_EVENT){//读取DHT11数据事件
+   \   00000C   5403         ANL     A,#0x3
+   \   00000E   7003         JNZ     $+5
+   \   000010   02....       LJMP    ??CrossCallReturnLabel_5 & 0xFFFF
+    124              unsigned char mq2value[4];
+    125              unsigned int AdcValue=0;
+    126              AdcValue=readAdc(5);
+    127              sprintf(mq2value,"%d\r\n", AdcValue);
+                             ^
+Warning[Pe167]: argument of type "unsigned char *" is incompatible with
+          parameter of type "char *"
+   \   000013                ; Setup parameters for call to function sprintf
+   \   000013                ; Setup parameters for call to function readAdc
+   \   000013   7905         MOV     R1,#0x5
+   \   000015   12....       LCALL   ??readAdc?relay
+   \   000018   8A..         MOV     ?V0 + 0,R2
+   \   00001A   8B..         MOV     ?V0 + 1,R3
+   \   00001C   78..         MOV     R0,#?V0 + 0
+   \   00001E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000021   7C..         MOV     R4,#`?<Constant "%d\\r\\n">` & 0xff
+   \   000023   7D..         MOV     R5,#(`?<Constant "%d\\r\\n">` >> 8) & 0xff
+   \   000025   7402         MOV     A,#0x2
+   \   000027   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002A   AA82         MOV     R2,DPL
+   \   00002C   AB83         MOV     R3,DPH
+   \   00002E   12....       LCALL   ??sprintf?relay
+   \   000031   7402         MOV     A,#0x2
+   \   000033   12....       LCALL   ?DEALLOC_XSTACK8
+    128              //sprintf(mq2value,"{\"mq2\":\"%u\"}\r\n",AdcValue);
+    129              HalUARTWrite(0,mq2value,osal_strlen(mq2value));
+                                                         ^
+Warning[Pe167]: argument of type "unsigned char *" is incompatible with
+          parameter of type "char *"
+   \   000036                ; Setup parameters for call to function HalUARTWrite
+   \   000036                ; Setup parameters for call to function osal_strlen
+   \   000036   85..82       MOV     DPL,?XSP + 0
+   \   000039   85..83       MOV     DPH,?XSP + 1
+   \   00003C   AA82         MOV     R2,DPL
+   \   00003E   AB83         MOV     R3,DPH
+   \   000040   12....       LCALL   ??osal_strlen?relay
+   \   000043   EA           MOV     A,R2
+   \   000044   FC           MOV     R4,A
+   \   000045   EB           MOV     A,R3
+   \   000046   FD           MOV     R5,A
+   \   000047   85..82       MOV     DPL,?XSP + 0
+   \   00004A   85..83       MOV     DPH,?XSP + 1
+   \   00004D   AA82         MOV     R2,DPL
+   \   00004F   AB83         MOV     R3,DPH
+   \   000051   12....       LCALL   ?Subroutine2 & 0xFFFF
+    130              //把读取到的烟雾浓度值发给协调器
+    131              zb_SendDataRequest(0X0,MQ2_CMD_ID,osal_strlen(mq2value),mq2value,0,FALSE,AF_DEFAULT_RADIUS); 
+                                                                   ^
+Warning[Pe167]: argument of type "unsigned char *" is incompatible with
+          parameter of type "char *"
+   \                     ??CrossCallReturnLabel_1:
+   \   000054   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000057   75..00       MOV     ?V0 + 0,#0x0
+   \   00005A   78..         MOV     R0,#?V0 + 0
+   \   00005C   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00005F   78..         MOV     R0,#?V0 + 0
+   \   000061   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000064   7403         MOV     A,#0x3
+   \   000066   12....       LCALL   ?XSTACK_DISP0_8
+   \   000069   8582..       MOV     ?V0 + 0,DPL
+   \   00006C   8583..       MOV     ?V0 + 1,DPH
+   \   00006F   78..         MOV     R0,#?V0 + 0
+   \   000071   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000074                ; Setup parameters for call to function osal_strlen
+   \   000074   7405         MOV     A,#0x5
+   \   000076   12....       LCALL   ?XSTACK_DISP0_8
+   \   000079   AA82         MOV     R2,DPL
+   \   00007B   AB83         MOV     R3,DPH
+   \   00007D   12....       LCALL   ??osal_strlen?relay
+   \   000080   EA           MOV     A,R2
+   \   000081   F9           MOV     R1,A
+   \   000082   7C05         MOV     R4,#0x5
+   \   000084   7D00         MOV     R5,#0x0
+   \   000086   7A00         MOV     R2,#0x0
+   \   000088   7B00         MOV     R3,#0x0
+   \   00008A   12....       LCALL   ??zb_SendDataRequest?relay
+   \   00008D   7405         MOV     A,#0x5
+   \   00008F   12....       LCALL   ?DEALLOC_XSTACK8
+    132              osal_start_timerEx(sapi_TaskID,READ_MQ2_EVENT,5000);
+   \   000092                ; Setup parameters for call to function osal_start_timerEx
+   \   000092   7C88         MOV     R4,#-0x78
+   \   000094   7D13         MOV     R5,#0x13
+   \   000096   7A03         MOV     R2,#0x3
+   \   000098   12....       LCALL   ??Subroutine3_0 & 0xFFFF
+    133             
+    134            }
+    135            
+    136            if(event&TIMER_TIMEOUT_EVT)
+   \                     ??CrossCallReturnLabel_5:
+   \   00009B   EE           MOV     A,R6
+   \   00009C   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00009E   5032         JNC     ??zb_HandleOsalEvent_0
+    137            {
+    138              osal_start_timerEx(sapi_TaskID,TIMER_TIMEOUT_EVT,2000);
+   \   0000A0                ; Setup parameters for call to function osal_start_timerEx
+   \   0000A0   12....       LCALL   ?Subroutine1 & 0xFFFF
+    139              zb_SendDataRequest(0X0,HEART_BEAT_CMD_ID,
+    140                                 0,NULL,0,FALSE,AF_DEFAULT_RADIUS); 
+   \                     ??CrossCallReturnLabel_3:
+   \   0000A3                ; Setup parameters for call to function zb_SendDataRequest
+   \   0000A3   75..1E       MOV     ?V0 + 0,#0x1e
+   \   0000A6   78..         MOV     R0,#?V0 + 0
+   \   0000A8   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000AB   75..00       MOV     ?V0 + 0,#0x0
+   \   0000AE   78..         MOV     R0,#?V0 + 0
+   \   0000B0   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000B3   78..         MOV     R0,#?V0 + 0
+   \   0000B5   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000B8   E4           CLR     A
+   \   0000B9   F5..         MOV     ?V0 + 1,A
+   \   0000BB   78..         MOV     R0,#?V0 + 0
+   \   0000BD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000C0   7900         MOV     R1,#0x0
+   \   0000C2   7C03         MOV     R4,#0x3
+   \   0000C4   7D00         MOV     R5,#0x0
+   \   0000C6   7A00         MOV     R2,#0x0
+   \   0000C8   7B00         MOV     R3,#0x0
+   \   0000CA   12....       LCALL   ??zb_SendDataRequest?relay
+   \   0000CD   7405         MOV     A,#0x5
+   \   0000CF   12....       LCALL   ?DEALLOC_XSTACK8
+    141            }
+    142          }
+   \                     ??zb_HandleOsalEvent_0:
+   \   0000D2   7404         MOV     A,#0x4
+   \   0000D4   02....       LJMP    ?Subroutine0 & 0xFFFF
+    143          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    144          void zb_FindDeviceConfirm( uint8 searchType, 
+   \                     zb_FindDeviceConfirm:
+    145                                    uint8 *searchKey, uint8 *result )
+    146          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    147            
+    148          }
+   \   000000   02....       LJMP    ?BRET
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for ledIdList>`:
+   \   000000   03           DB 3
+   \   000001   04           DB 4
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??readAdc?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    readAdc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_SendDataConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_SendDataConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_ReceiveDataIndication?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_ReceiveDataIndication
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_AllowBindConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_AllowBindConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_HandleKeys?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_HandleKeys
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_BindConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_BindConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_StartConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_StartConfirm
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_HandleOsalEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_HandleOsalEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_FindDeviceConfirm?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_FindDeviceConfirm
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "join success\\r\\n">`:
+   \   000000   6A6F696E     DB "join success\015\012"
+   \            20737563
+   \            63657373
+   \            0D0A00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%d\\r\\n">`:
+   \   000000   25640D0A     DB "%d\015\012"
+   \            00      
+
+   Maximum stack usage in bytes:
+
+     Function                 ISTACK PSTACK XSTACK
+     --------                 ------ ------ ------
+     readAdc                      2      0     14
+     zb_AllowBindConfirm          0      0      0
+     zb_BindConfirm               0      0      0
+     zb_FindDeviceConfirm         0      0      0
+     zb_HandleKeys                0      0      0
+     zb_HandleOsalEvent           0      0     19
+       -> readAdc                 0      0     28
+       -> sprintf                 0      0     32
+       -> osal_strlen             0      0     28
+       -> HalUARTWrite            0      0     28
+       -> osal_strlen             0      0     38
+       -> zb_SendDataRequest      0      0     38
+       -> osal_start_timerEx      0      0     28
+       -> osal_start_timerEx      0      0     28
+       -> zb_SendDataRequest      0      0     38
+     zb_ReceiveDataIndication     0      0      4
+     zb_SendDataConfirm           0      0      0
+     zb_StartConfirm              0      0     44
+       -> HalUARTOpen             0      0     78
+       -> osal_strlen             0      0     78
+       -> HalUARTWrite            0      0     78
+       -> zb_SendDataRequest      0      0     88
+       -> osal_start_timerEx      0      0     78
+       -> osal_start_timerEx      0      0     78
+
+
+   Segment part sizes:
+
+     Function/Label                   Bytes
+     --------------                   -----
+     _A_TCON                             1
+     ADCCON3                             1
+     ADCL                                1
+     ADCH                                1
+     APCFG                               1
+     ledIdList                           2
+     ADC_value                           2
+     ADC_result                          4
+     ADC_data                            3
+     ledDeviceInputCommandList           2
+     ledDeviceOutputCommandList          4
+     zb_SimpleDesc                      12
+     readAdc                            54
+     zb_SendDataConfirm                  3
+     zb_ReceiveDataIndication            3
+     zb_AllowBindConfirm                 3
+     zb_HandleKeys                       3
+     zb_BindConfirm                      3
+     zb_StartConfirm                   128
+     ?Subroutine0                        8
+     ?Subroutine2                       11
+     ?Subroutine1                        6
+     ??Subroutine3_0                    11
+     zb_HandleOsalEvent                215
+     zb_FindDeviceConfirm                3
+     ?<Initializer for ledIdList>        2
+     ??readAdc?relay                     6
+     ??zb_SendDataConfirm?relay          6
+     ??zb_ReceiveDataIndication?relay    6
+     ??zb_AllowBindConfirm?relay         6
+     ??zb_HandleKeys?relay               6
+     ??zb_BindConfirm?relay              6
+     ??zb_StartConfirm?relay             6
+     ??zb_HandleOsalEvent?relay          6
+     ??zb_FindDeviceConfirm?relay        6
+     ?<Constant "join success\r\n">     15
+     ?<Constant "%d\r\n">                5
+
+ 
+ 451 bytes in segment BANKED_CODE
+  54 bytes in segment BANK_RELAYS
+   5 bytes in segment SFR_AN
+   2 bytes in segment XDATA_I
+   2 bytes in segment XDATA_ID
+  38 bytes in segment XDATA_ROM_C
+   9 bytes in segment XDATA_Z
+ 
+ 507 bytes of CODE  memory
+  38 bytes of CONST memory
+   0 bytes of DATA  memory (+ 5 bytes shared)
+  11 bytes of XDATA memory
+
+Errors: none
+Warnings: 3

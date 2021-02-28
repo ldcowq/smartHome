@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/navfirstpage"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_temphumi"
+            android:icon="@drawable/navtemphumi"
+            android:title="@string/menu_temphumi" />
+        <item
+            android:id="@+id/nav_light"
+            android:icon="@drawable/navlight"
+            android:title="@string/menu_light" />
+        <item
+            android:id="@+id/nav_mq2"
+            android:icon="@drawable/navmq2"
+            android:title="@string/menu_mq2" />
+        <item
+            android:id="@+id/nav_control"
+            android:icon="@drawable/navcontrol"
+            android:title="@string/menu_control" />
+        <item
+            android:id="@+id/nav_mqtt"
+            android:icon="@drawable/navmqtt"
+            android:title="@string/menu_mqtt" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/navcontact"
+            android:title="@string/menu_contact" />
+    </group>
+</menu>

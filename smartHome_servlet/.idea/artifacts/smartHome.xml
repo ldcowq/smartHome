@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="smartHome">
+    <output-path>$PROJECT_DIR$/../war</output-path>
+    <root id="archive" name="smartHome.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="smartHome" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="servlet-api" />
+          <element id="library" level="project" name="commons-dbutils-1.3" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="smartHome/web/Web" />
+    </root>
+  </artifact>
+</component>
